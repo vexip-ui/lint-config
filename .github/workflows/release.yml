@@ -3,7 +3,7 @@ name: Create Release
 on:
   push:
     tags:
-      - '*-config'
+      - "*-config@*"
 
 jobs:
   build:
