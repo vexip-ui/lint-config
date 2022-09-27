@@ -3,7 +3,7 @@ name: Create Release
 on:
   push:
     tags:
-      - v*
+      - '*-config@'
 
 jobs:
   build:
@@ -13,6 +13,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@master
 
+      - name: Get pkgName for tag
+        id: tag
+        run: |
+          pkgName=${GITHUB_REF_NAME%@*}
+          echo "::set-output name=pkgName::$pkgName"
+
       - name: Create Release for Tag
         id: release_tag
         uses: yyx990803/release-tag@master
@@ -21,4 +27,4 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           body: |
-            Please refer to [CHANGELOG.md](https://github.com/vexip-ui/lint-config/blob/main/CHANGELOG.md) for details.
+            Please refer to [CHANGELOG.md](https://github.com/vexip-ui/lint-config/blob/${{ github.ref_name }}/packages/${{ steps.tag.outputs.pkgName }}/CHANGELOG.md) for details.
