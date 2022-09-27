@@ -1,0 +1,18 @@
+{
+  "name": "@vexip-ui/prettier-config",
+  "version": "0.0.0",
+  "license": "MIT",
+  "author": "qmhc",
+  "keywords": [
+    "vexip-ui",
+    "prettier",
+    "prettier-config"
+  ],
+  "main": "index.js",
+  "peerDependencies": {
+    "prettier": ">=2.5.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.7.1"
+  }
+}
