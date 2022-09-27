@@ -5,20 +5,28 @@
   "private": true,
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "release": "ts-node scripts/release.ts"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
     "@types/minimist": "^1.2.2",
     "@types/node": "^18.7.23",
     "@types/prompts": "^2.0.14",
     "@types/semver": "^7.3.12",
+    "conventional-changelog-cli": "^2.2.2",
     "eslint": "^8.24.0",
     "execa": "5.1.1",
+    "husky": "^8.0.1",
+    "is-ci": "^3.0.1",
     "kolorist": "^1.6.0",
+    "lint-staged": "^13.0.3",
     "minimist": "^1.2.6",
-    "node-ts": "^5.1.2",
     "prettier": "^2.7.1",
     "prompts": "^2.4.2",
-    "semver": "^7.3.7"
+    "semver": "^7.3.7",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.3"
   }
 }

@@ -80,33 +80,28 @@ async function main() {
 
   if (!confirm) return
 
-  // 执行单元测试
-  logStep('Running test...')
-
-  if (!isDryRun) {
-    await run('pnpm', ['test'])
-  } else {
-    logSkipped()
-  }
-
   logStep('Updating version...')
 
   pkg.version = version
   fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2) + '\n')
 
-  // 构建库
-  logStep('Building package...')
-
-  if (!isDryRun) {
-    await run('pnpm', ['build'])
-  } else {
-    logSkipped()
-  }
-
   // 更新 Change Log
   logStep('Updating changelog...')
 
-  await run('pnpm', ['changelog'])
+  const changelogArgs = [
+    'conventional-changelog',
+    '-p',
+    'angular',
+    '-i',
+    'CHANGELOG.md',
+    '-s',
+    '--commit-path',
+    '.',
+    '--lerna-package',
+    pkgName
+  ]
+
+  await run('npx', changelogArgs, { cwd: pkgDir })
 
   // 提交改动
   logStep('Comitting changes...')

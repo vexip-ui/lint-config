@@ -1,0 +1,15 @@
+{
+  "name": "@vexip-ui/commitlint-config",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": "qmhc",
+  "keywords": [
+    "vexip-ui",
+    "commitlint",
+    "commitlint-config"
+  ],
+  "main": "index.js",
+  "dependencies": {
+    "@commitlint/config-conventional": "^17.1.0"
+  }
+}
