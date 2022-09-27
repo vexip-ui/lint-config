@@ -51,9 +51,15 @@ module.exports = {
       }
     ],
     'color-function-notation': null,
-    'scss/at-import-partial-extension': 'always',
     'function-no-unknown': null,
     'alpha-value-notation': 'percentage',
+    'annotation-no-unknown': [
+      true,
+      {
+        ignoreAnnotations: ['default', 'global']
+      }
+    ],
+    'scss/at-import-partial-extension': 'always',
     'scss/dollar-variable-empty-line-before': null,
     'scss/operator-no-newline-after': null
   },
