@@ -24,7 +24,7 @@ pnpm add -D prettier @vexip-ui/prettier-config
 pnpm add -D stylelint @vexip-ui/stylelint-config
 ```
 
-Then in your `xxxlintrc.js`:
+Then in your `xxxlintrc.cjs`:
 
 ```js
 module.exports = {
@@ -32,7 +32,7 @@ module.exports = {
 }
 ```
 
-For `prettierrc.js` just a little defferent:
+For `prettierrc.cjs` just a little defferent:
 
 ```js
 module.exports = require('@vexip-ui/prettier-config')
