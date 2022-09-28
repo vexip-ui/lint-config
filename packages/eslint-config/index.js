@@ -29,7 +29,13 @@ module.exports = {
         : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-return-assign': 'off',
-    'space-before-function-paren': [
+    'no-use-before-define': 'off',
+    'space-before-function-paren': 'off',
+
+    // typescript
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/strict-boolean-expressions': 'off',
+    '@typescript-eslint/space-before-function-paren': [
       'error',
       {
         anonymous: 'always',
@@ -37,10 +43,14 @@ module.exports = {
         asyncArrow: 'always'
       }
     ],
-
-    // typescript
-    '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/strict-boolean-expressions': 'off',
+    '@typescript-eslint/no-use-before-define': [
+      'error',
+      {
+        functions: false,
+        classes: false,
+        variables: true
+      }
+    ],
     '@typescript-eslint/member-delimiter-style': [
       'error',
       {
@@ -62,14 +72,6 @@ module.exports = {
       }
     ],
     '@typescript-eslint/no-unnecessary-condition': 'off',
-    '@typescript-eslint/space-before-function-paren': [
-      'error',
-      {
-        anonymous: 'always',
-        named: 'never',
-        asyncArrow: 'always'
-      }
-    ],
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
@@ -197,6 +199,7 @@ module.exports = {
   ignorePatterns: [
     '*.min.*',
     '*.log',
+    '*.svg',
     '.env.*',
     'CHANGELOG.md',
     'dist',
