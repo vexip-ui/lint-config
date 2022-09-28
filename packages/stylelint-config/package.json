@@ -3,6 +3,7 @@
   "version": "0.1.1",
   "license": "MIT",
   "author": "qmhc",
+  "homepage": "https://github.com/vexip-ui/lint-config",
   "keywords": [
     "vexip-ui",
     "stylelint",
