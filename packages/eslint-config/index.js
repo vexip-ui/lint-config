@@ -83,6 +83,7 @@ module.exports = {
         disallowTypeAnnotations: false
       }
     ],
+    '@typescript-eslint/ban-ts-comment': 'off',
 
     // vue
     'vue/eqeqeq': 'error',
