@@ -1,3 +1,12 @@
+# [0.3.0](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.2.0...eslint-config@0.3.0) (2022-10-11)
+
+
+### Features
+
+* **eslint-config:** off @typescript-eslint/no-unused-vars for dts ([3335258](https://github.com/vexip-ui/lint-config/commit/3335258856d41cabe335973f6f11b545faf1b500))
+
+
+
 # [0.2.0](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.1.1...eslint-config@0.2.0) (2022-10-06)
 
 
