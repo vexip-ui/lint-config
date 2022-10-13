@@ -135,8 +135,11 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['**/*.vue'],
+      files: ['*.vue'],
       rules: {
+        'no-unused-vars': 'off',
+        'no-undef': 'off',
+        '@typescript-eslint/no-unused-vars': 'off',
         '@typescript-eslint/consistent-type-imports': 'off'
       }
     },
