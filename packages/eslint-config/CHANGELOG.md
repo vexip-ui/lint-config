@@ -1,3 +1,12 @@
+## [0.3.1](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.3.0...eslint-config@0.3.1) (2022-10-13)
+
+
+### Bug Fixes
+
+* **eslint-config:** support auto import ([8f4fa86](https://github.com/vexip-ui/lint-config/commit/8f4fa86b36af39a22d291125f0af49ed2cd76181))
+
+
+
 # [0.3.0](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.2.0...eslint-config@0.3.0) (2022-10-11)
 
 
