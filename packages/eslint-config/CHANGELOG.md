@@ -1,3 +1,12 @@
+## [0.4.7](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.4.6...eslint-config@0.4.7) (2022-11-03)
+
+
+### Bug Fixes
+
+* **eslint-config:** extract parserOptions ([5fa1d7a](https://github.com/vexip-ui/lint-config/commit/5fa1d7a97d0ff5cb5d7b064a0d50e1c6e682b75a))
+
+
+
 ## [0.4.6](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.4.5...eslint-config@0.4.6) (2022-11-03)
 
 
