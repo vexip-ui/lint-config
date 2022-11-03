@@ -42,6 +42,7 @@ module.exports = defineConfig({
   extends: [
     'plugin:vue/vue3-recommended',
     'standard',
+    'plugin:import/typescript',
     'plugin:jsonc/recommended-with-jsonc',
     'plugin:yml/standard',
     'plugin:markdown/recommended',
@@ -59,7 +60,7 @@ module.exports = defineConfig({
   reportUnusedDisableDirectives: true,
   settings: {
     'import/resolver': {
-      'eslint-import-resolver-node': {
+      node: {
         extensions: [
           '.mts',
           '.ts',
@@ -70,16 +71,7 @@ module.exports = defineConfig({
           '.json',
           '.node',
         ]
-      },
-      'eslint-import-resolver-typescript': {
-        alwaysTryTypes: true,
-        project: ['**/tsconfig.json', '**/tsconfig.*.json']
       }
-    },
-    'import/extensions': ['.mjs', '.js', '.jsx', '.mts', '.ts', '.tsx'],
-    'import/external-module-folders': ['node_modules', 'node_modules/@types'],
-    'import/parsers': {
-      '@typescript-eslint/parser': ['.mts', '.ts', '.tsx']
     }
   },
   rules: {
