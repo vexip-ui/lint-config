@@ -41,11 +41,11 @@ function ruleFromStandard(name) {
 module.exports = defineConfig({
   extends: [
     'standard',
-    'plugin:vue/vue3-recommended',
     'plugin:jsonc/recommended-with-jsonc',
     'plugin:yml/standard',
     'plugin:markdown/recommended',
-    '@vue/typescript/recommended'
+    'plugin:vue/vue3-recommended',
+    '@vue/eslint-config-typescript/recommended'
   ],
   env: {
     es6: true,
@@ -54,8 +54,7 @@ module.exports = defineConfig({
   },
   parser: 'vue-eslint-parser',
   parserOptions: {
-    ecmaVersion: 'latest',
-    parser: '@typescript-eslint/parser'
+    ecmaVersion: 'latest'
   },
   reportUnusedDisableDirectives: true,
   settings: {
