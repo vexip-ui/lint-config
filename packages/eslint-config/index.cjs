@@ -40,9 +40,8 @@ function ruleFromStandard(name) {
 
 module.exports = defineConfig({
   extends: [
-    'plugin:vue/vue3-recommended',
     'standard',
-    'plugin:import/typescript',
+    'plugin:vue/vue3-recommended',
     'plugin:jsonc/recommended-with-jsonc',
     'plugin:yml/standard',
     'plugin:markdown/recommended',
@@ -55,7 +54,8 @@ module.exports = defineConfig({
   },
   parser: 'vue-eslint-parser',
   parserOptions: {
-    ecmaVersion: 'latest'
+    ecmaVersion: 'latest',
+    parser: '@typescript-eslint/parser'
   },
   reportUnusedDisableDirectives: true,
   settings: {
@@ -241,9 +241,6 @@ module.exports = defineConfig({
   overrides: [
     {
       files: ['*.vue'],
-      parserOptions: {
-        parser: '@typescript-eslint/parser'
-      },
       rules: {
         'no-unused-vars': 'off',
         'no-undef': 'off',
