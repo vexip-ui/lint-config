@@ -1,3 +1,12 @@
+## [0.4.3](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.4.2...eslint-config@0.4.3) (2022-11-03)
+
+
+### Bug Fixes
+
+* **eslint-config:** remove rules which are related tsconfig.json ([07e0435](https://github.com/vexip-ui/lint-config/commit/07e043590738912f3fb6785865e7720c53d742e7))
+
+
+
 ## [0.4.2](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.4.1...eslint-config@0.4.2) (2022-11-03)
 
 
