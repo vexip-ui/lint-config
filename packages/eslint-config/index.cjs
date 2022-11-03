@@ -1,13 +1,47 @@
-const upstreamConfig = require('eslint-config-standard-with-typescript')
-const tsOverrides = upstreamConfig.overrides.find((override) =>
-  override.files.includes('*.ts')
-)
-const tsStandardRules = tsOverrides.rules
+const { defineConfig } = require('eslint-define-config')
+const configStandard = require('eslint-config-standard/.eslintrc.json')
+const equivalents = [
+  'comma-spacing',
+  'dot-notation',
+  'brace-style',
+  'func-call-spacing',
+  'indent',
+  'keyword-spacing',
+  'lines-between-class-members',
+  'no-array-constructor',
+  'no-dupe-class-members',
+  'no-extra-parens',
+  'no-loss-of-precision',
+  'no-redeclare',
+  'no-throw-literal',
+  'no-unused-vars',
+  'no-unused-expressions',
+  'no-useless-constructor',
+  'object-curly-spacing',
+  'quotes',
+  'semi',
+  'space-before-blocks',
+  'space-before-function-paren',
+  'space-infix-ops'
+]
 
-module.exports = {
+function fromEntries(iterable) {
+  return [...iterable].reduce((obj, [key, val]) => {
+    obj[key] = val
+    return obj
+  }, {})
+}
+
+function ruleFromStandard(name) {
+  const rule = configStandard.rules[name]
+
+  return rule || 'off'
+}
+
+module.exports = defineConfig({
   extends: [
     'plugin:vue/vue3-recommended',
-    'standard-with-typescript',
+    'standard',
     'plugin:jsonc/recommended-with-jsonc',
     'plugin:yml/standard',
     'plugin:markdown/recommended',
@@ -21,12 +55,37 @@ module.exports = {
   parser: 'vue-eslint-parser',
   parserOptions: {
     ecmaVersion: 'latest',
-    parser: '@typescript-eslint/parser',
-    project: ['**/tsconfig.json', '**/tsconfig.*.json'],
-    extraFileExtensions: ['.vue']
   },
   reportUnusedDisableDirectives: true,
+  settings: {
+    'import/resolver': {
+      'eslint-import-resolver-node': {
+        extensions: [
+          '.mts',
+          '.ts',
+          '.tsx',
+          '.mjs',
+          '.js',
+          '.jsx',
+          '.json',
+          '.node',
+        ]
+      },
+      'eslint-import-resolver-typescript': {
+        alwaysTryTypes: true,
+        project: ['**/tsconfig.json', '**/tsconfig.*.json']
+      }
+    },
+    'import/extensions': ['.mjs', '.js', '.jsx', '.mts', '.ts', '.tsx'],
+    'import/external-module-folders': ['node_modules', 'node_modules/@types'],
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.mts', '.ts', '.tsx']
+    }
+  },
   rules: {
+    ...fromEntries(equivalents.map((name) => [name, 'off'])),
+    ...fromEntries(equivalents.map((name) => [`@typescript-eslint/${name}`, ruleFromStandard(name)])),
+
     'no-console':
       process.env.NODE_ENV === 'production'
         ? [
@@ -93,6 +152,7 @@ module.exports = {
       }
     ],
     '@typescript-eslint/ban-ts-comment': 'off',
+    '@typescript-eslint/array-type': 'off',
 
     // vue
     'vue/eqeqeq': 'error',
@@ -145,9 +205,10 @@ module.exports = {
   overrides: [
     {
       files: ['*.vue'],
+      parserOptions: {
+        parser: '@typescript-eslint/parser'
+      },
       rules: {
-        ...tsStandardRules,
-
         'no-unused-vars': 'off',
         'no-undef': 'off',
         '@typescript-eslint/no-unused-vars': 'off',
@@ -234,4 +295,4 @@ module.exports = {
     '!.vitepress',
     '!.vscode'
   ]
-}
+})
