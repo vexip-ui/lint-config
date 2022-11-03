@@ -1,3 +1,14 @@
+## [0.4.6](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.4.5...eslint-config@0.4.6) (2022-11-03)
+
+
+### Bug Fixes
+
+* **eslint-config:** close standard no-use-before-define ([55053b7](https://github.com/vexip-ui/lint-config/commit/55053b7afc5b94629bb7f84d5d9c5ed1fe9363d0))
+* **eslint-config:** improve @typescript-eslint/indent ([73a43db](https://github.com/vexip-ui/lint-config/commit/73a43db1f55b074f25413c6c3990cb5803f1e5d9))
+* **eslint-config:** improve @typescript-eslint/no-unused-vars ([b2e390e](https://github.com/vexip-ui/lint-config/commit/b2e390e17e0b636362f957a43d3435ed87ab9158))
+
+
+
 ## [0.4.5](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.4.4...eslint-config@0.4.5) (2022-11-03)
 
 
