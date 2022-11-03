@@ -1,3 +1,12 @@
+## [0.4.2](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.4.1...eslint-config@0.4.2) (2022-11-03)
+
+
+### Bug Fixes
+
+* manually override typescript rules ([7d11d13](https://github.com/vexip-ui/lint-config/commit/7d11d13c64207b6343e4693cebc9a79ab537b0c9))
+
+
+
 ## [0.4.1](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.4.0...eslint-config@0.4.1) (2022-11-03)
 
 
