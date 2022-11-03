@@ -1,7 +1,7 @@
 module.exports = {
   extends: [
     'plugin:vue/vue3-recommended',
-    'standard',
+    'standard-with-typescript',
     'plugin:jsonc/recommended-with-jsonc',
     'plugin:yml/standard',
     'plugin:markdown/recommended',
@@ -29,8 +29,6 @@ module.exports = {
         : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-return-assign': 'off',
-    'no-use-before-define': 'off',
-    'space-before-function-paren': 'off',
 
     // typescript
     '@typescript-eslint/no-explicit-any': 'off',
@@ -48,7 +46,9 @@ module.exports = {
       {
         functions: false,
         classes: false,
-        variables: true
+        variables: true,
+        enums: false,
+        typedefs: false
       }
     ],
     '@typescript-eslint/member-delimiter-style': [
