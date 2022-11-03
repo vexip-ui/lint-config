@@ -9,7 +9,11 @@
     "eslint",
     "eslint-config"
   ],
-  "main": "index.js",
+  "main": "index.cjs",
+  "exports": {
+    ".": "./index.cjs",
+    "./package.json": "./package.json"
+  },
   "peerDependencies": {
     "eslint": ">=8.0.0"
   },

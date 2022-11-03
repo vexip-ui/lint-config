@@ -1,3 +1,9 @@
+const upstreamConfig = require('eslint-config-standard-with-typescript')
+const tsOverrides = upstreamConfig.overrides.find((override) =>
+  override.files.includes('*.ts')
+)
+const tsStandardRules = tsOverrides.rules
+
 module.exports = {
   extends: [
     'plugin:vue/vue3-recommended',
@@ -14,7 +20,10 @@ module.exports = {
   },
   parser: 'vue-eslint-parser',
   parserOptions: {
-    ecmaVersion: 'latest'
+    ecmaVersion: 'latest',
+    parser: '@typescript-eslint/parser',
+    project: ['**/tsconfig.json', '**/tsconfig.*.json'],
+    extraFileExtensions: ['.vue']
   },
   reportUnusedDisableDirectives: true,
   rules: {
@@ -137,6 +146,8 @@ module.exports = {
     {
       files: ['*.vue'],
       rules: {
+        ...tsStandardRules,
+
         'no-unused-vars': 'off',
         'no-undef': 'off',
         '@typescript-eslint/no-unused-vars': 'off',
