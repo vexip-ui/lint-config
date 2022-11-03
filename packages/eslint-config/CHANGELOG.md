@@ -1,3 +1,12 @@
+# [0.5.0](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.4.7...eslint-config@0.5.0) (2022-11-03)
+
+
+### Features
+
+* **eslint-config:** update extends ([6f0f0a6](https://github.com/vexip-ui/lint-config/commit/6f0f0a6768b7e4cdb46369e17ae9fbeae2d141c0))
+
+
+
 ## [0.4.7](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.4.6...eslint-config@0.4.7) (2022-11-03)
 
 
