@@ -1,3 +1,12 @@
+## [0.4.1](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.4.0...eslint-config@0.4.1) (2022-11-03)
+
+
+### Bug Fixes
+
+* **eslint-config:** missing parserOptions.project ([37cdee8](https://github.com/vexip-ui/lint-config/commit/37cdee8a75a8b33f20546b8b3c2ccfd2d0544826))
+
+
+
 # [0.4.0](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.3.1...eslint-config@0.4.0) (2022-11-03)
 
 
