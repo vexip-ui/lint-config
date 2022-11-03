@@ -1,3 +1,12 @@
+## [0.4.5](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.4.4...eslint-config@0.4.5) (2022-11-03)
+
+
+### Bug Fixes
+
+* **eslint-config:** remove unnecessary settings ([2b2054a](https://github.com/vexip-ui/lint-config/commit/2b2054adbe7a518c5e760f9de20902124ad72006))
+
+
+
 ## [0.4.4](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.4.3...eslint-config@0.4.4) (2022-11-03)
 
 
