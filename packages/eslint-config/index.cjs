@@ -1,28 +1,28 @@
 const { defineConfig } = require('eslint-define-config')
 const configStandard = require('eslint-config-standard/.eslintrc.json')
 const equivalents = [
-  'comma-spacing',
-  // 'dot-notation',
-  'brace-style',
-  'func-call-spacing',
   'indent',
-  'keyword-spacing',
-  'lines-between-class-members',
-  'no-array-constructor',
-  'no-dupe-class-members',
-  'no-extra-parens',
-  'no-loss-of-precision',
-  'no-redeclare',
-  // 'no-throw-literal',
   'no-unused-vars',
-  'no-unused-expressions',
-  'no-useless-constructor',
+  'no-redeclare',
+  'no-use-before-define',
+  'brace-style',
+  'comma-dangle',
   'object-curly-spacing',
-  'quotes',
   'semi',
+  'quotes',
   'space-before-blocks',
   'space-before-function-paren',
-  'space-infix-ops'
+  'space-infix-ops',
+  'keyword-spacing',
+  'comma-spacing',
+  'no-extra-parens',
+  'no-dupe-class-members',
+  'no-loss-of-precision',
+  'lines-between-class-members',
+  'func-call-spacing',
+  'no-array-constructor',
+  'no-unused-expressions',
+  'no-useless-constructor'
 ]
 
 function fromEntries(iterable) {
