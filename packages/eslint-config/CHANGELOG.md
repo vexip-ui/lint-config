@@ -1,3 +1,12 @@
+# [0.4.0](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.3.1...eslint-config@0.4.0) (2022-11-03)
+
+
+### Features
+
+* **eslint-config:** switch to standard-with-typescript ([989cd93](https://github.com/vexip-ui/lint-config/commit/989cd93a92ac132999ccc48143e7d29242c8ea41))
+
+
+
 ## [0.3.1](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.3.0...eslint-config@0.3.1) (2022-10-13)
 
 
