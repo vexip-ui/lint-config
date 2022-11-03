@@ -183,6 +183,12 @@ module.exports = defineConfig({
     ],
     '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/array-type': 'off',
+    '@typescript-eslint/no-unused-vars': ['warn', {
+      args: 'after-used',
+      argsIgnorePattern: '^_',
+      caughtErrors: 'none',
+      ignoreRestSiblings: true
+    }],
 
     // vue
     'vue/eqeqeq': 'error',
