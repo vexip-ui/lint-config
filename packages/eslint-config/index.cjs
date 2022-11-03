@@ -2,7 +2,7 @@ const { defineConfig } = require('eslint-define-config')
 const configStandard = require('eslint-config-standard/.eslintrc.json')
 const equivalents = [
   'comma-spacing',
-  'dot-notation',
+  // 'dot-notation',
   'brace-style',
   'func-call-spacing',
   'indent',
@@ -13,7 +13,7 @@ const equivalents = [
   'no-extra-parens',
   'no-loss-of-precision',
   'no-redeclare',
-  'no-throw-literal',
+  // 'no-throw-literal',
   'no-unused-vars',
   'no-unused-expressions',
   'no-useless-constructor',
