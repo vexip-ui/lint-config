@@ -1,3 +1,12 @@
+## [0.4.4](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.4.3...eslint-config@0.4.4) (2022-11-03)
+
+
+### Bug Fixes
+
+* **eslint-config:** add typescript lint dependencies ([8a53fa9](https://github.com/vexip-ui/lint-config/commit/8a53fa9440286573f8194d95e985b42bbd619783))
+
+
+
 ## [0.4.3](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.4.2...eslint-config@0.4.3) (2022-11-03)
 
 
