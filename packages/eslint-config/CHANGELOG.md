@@ -1,3 +1,12 @@
+## [0.5.1](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.5.0...eslint-config@0.5.1) (2022-11-14)
+
+
+### Bug Fixes
+
+* **eslint-config:** override ts rules for vue files ([80cf7ac](https://github.com/vexip-ui/lint-config/commit/80cf7ac3bea48eecfa57b0cb1b99d94bf2cac8c7))
+
+
+
 # [0.5.0](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.4.7...eslint-config@0.5.0) (2022-11-03)
 
 
