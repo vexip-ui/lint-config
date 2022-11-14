@@ -38,6 +38,125 @@ function ruleFromStandard(name) {
   return rule || 'off'
 }
 
+/**
+ * @type  {import('eslint-define-config').Rules}
+ */
+const typeScriptRules = {
+  'no-console':
+      process.env.NODE_ENV === 'production'
+        ? [
+            'error',
+            {
+              allow: ['warn', 'error']
+            }
+          ]
+        : 'off',
+  'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+  'no-return-assign': 'off',
+
+  ...fromEntries(equivalents.map((name) => [name, 'off'])),
+  ...fromEntries(equivalents.map((name) => [`@typescript-eslint/${name}`, ruleFromStandard(name)])),
+
+  '@typescript-eslint/indent': ['error', 2, {
+    SwitchCase: 1,
+    VariableDeclarator: 1,
+    outerIIFEBody: 1,
+    MemberExpression: 1,
+    FunctionDeclaration: { parameters: 1, body: 1 },
+    FunctionExpression: { parameters: 1, body: 1 },
+    CallExpression: { arguments: 1 },
+    ArrayExpression: 1,
+    ObjectExpression: 1,
+    ImportDeclaration: 1,
+    flatTernaryExpressions: false,
+    ignoreComments: false,
+    ignoredNodes: [
+      'TemplateLiteral *',
+      'JSXElement',
+      'JSXElement > *',
+      'JSXAttribute',
+      'JSXIdentifier',
+      'JSXNamespacedName',
+      'JSXMemberExpression',
+      'JSXSpreadAttribute',
+      'JSXExpressionContainer',
+      'JSXOpeningElement',
+      'JSXClosingElement',
+      'JSXFragment',
+      'JSXOpeningFragment',
+      'JSXClosingFragment',
+      'JSXText',
+      'JSXEmptyExpression',
+      'JSXSpreadChild',
+      'TSTypeParameterInstantiation',
+      'FunctionExpression > .params[decorators.length > 0]',
+      'FunctionExpression > .params > :matches(Decorator, :not(:first-child))',
+      'ClassBody.body > PropertyDefinition[decorators.length > 0] > .key'
+    ],
+    offsetTernaryExpressions: true
+  }],
+  '@typescript-eslint/no-explicit-any': 'off',
+  '@typescript-eslint/strict-boolean-expressions': 'off',
+  '@typescript-eslint/space-before-function-paren': [
+    'error',
+    {
+      anonymous: 'always',
+      named: 'never',
+      asyncArrow: 'always'
+    }
+  ],
+  '@typescript-eslint/no-use-before-define': [
+    'error',
+    {
+      functions: false,
+      classes: false,
+      variables: true,
+      enums: false,
+      typedefs: false
+    }
+  ],
+  '@typescript-eslint/member-delimiter-style': [
+    'error',
+    {
+      multiline: {
+        delimiter: 'comma',
+        requireLast: false
+      },
+      singleline: {
+        delimiter: 'comma',
+        requireLast: false
+      }
+    }
+  ],
+  '@typescript-eslint/no-inferrable-types': 'error',
+  '@typescript-eslint/no-this-alias': [
+    'error',
+    {
+      allowDestructuring: true
+    }
+  ],
+  '@typescript-eslint/no-unnecessary-condition': 'off',
+  '@typescript-eslint/explicit-module-boundary-types': 'off',
+  '@typescript-eslint/explicit-function-return-type': 'off',
+  '@typescript-eslint/no-non-null-assertion': 'off',
+  '@typescript-eslint/consistent-type-assertions': 'off',
+  '@typescript-eslint/consistent-type-imports': [
+    'error',
+    {
+      prefer: 'type-imports',
+      disallowTypeAnnotations: false
+    }
+  ],
+  '@typescript-eslint/ban-ts-comment': 'off',
+  '@typescript-eslint/array-type': 'off',
+  '@typescript-eslint/no-unused-vars': ['warn', {
+    args: 'after-used',
+    argsIgnorePattern: '^_',
+    caughtErrors: 'none',
+    ignoreRestSiblings: true
+  }]
+}
+
 module.exports = defineConfig({
   extends: [
     'standard',
@@ -74,122 +193,8 @@ module.exports = defineConfig({
     }
   },
   rules: {
-    ...fromEntries(equivalents.map((name) => [name, 'off'])),
-    ...fromEntries(equivalents.map((name) => [`@typescript-eslint/${name}`, ruleFromStandard(name)])),
+    ...typeScriptRules,
 
-    'no-console':
-      process.env.NODE_ENV === 'production'
-        ? [
-            'error',
-            {
-              allow: ['warn', 'error']
-            }
-          ]
-        : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-return-assign': 'off',
-
-    // typescript
-    '@typescript-eslint/indent': ['error', 2, {
-      SwitchCase: 1,
-      VariableDeclarator: 1,
-      outerIIFEBody: 1,
-      MemberExpression: 1,
-      FunctionDeclaration: { parameters: 1, body: 1 },
-      FunctionExpression: { parameters: 1, body: 1 },
-      CallExpression: { arguments: 1 },
-      ArrayExpression: 1,
-      ObjectExpression: 1,
-      ImportDeclaration: 1,
-      flatTernaryExpressions: false,
-      ignoreComments: false,
-      ignoredNodes: [
-        'TemplateLiteral *',
-        'JSXElement',
-        'JSXElement > *',
-        'JSXAttribute',
-        'JSXIdentifier',
-        'JSXNamespacedName',
-        'JSXMemberExpression',
-        'JSXSpreadAttribute',
-        'JSXExpressionContainer',
-        'JSXOpeningElement',
-        'JSXClosingElement',
-        'JSXFragment',
-        'JSXOpeningFragment',
-        'JSXClosingFragment',
-        'JSXText',
-        'JSXEmptyExpression',
-        'JSXSpreadChild',
-        'TSTypeParameterInstantiation',
-        'FunctionExpression > .params[decorators.length > 0]',
-        'FunctionExpression > .params > :matches(Decorator, :not(:first-child))',
-        'ClassBody.body > PropertyDefinition[decorators.length > 0] > .key'
-      ],
-      offsetTernaryExpressions: true
-    }],
-    '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/strict-boolean-expressions': 'off',
-    '@typescript-eslint/space-before-function-paren': [
-      'error',
-      {
-        anonymous: 'always',
-        named: 'never',
-        asyncArrow: 'always'
-      }
-    ],
-    '@typescript-eslint/no-use-before-define': [
-      'error',
-      {
-        functions: false,
-        classes: false,
-        variables: true,
-        enums: false,
-        typedefs: false
-      }
-    ],
-    '@typescript-eslint/member-delimiter-style': [
-      'error',
-      {
-        multiline: {
-          delimiter: 'comma',
-          requireLast: false
-        },
-        singleline: {
-          delimiter: 'comma',
-          requireLast: false
-        }
-      }
-    ],
-    '@typescript-eslint/no-inferrable-types': 'error',
-    '@typescript-eslint/no-this-alias': [
-      'error',
-      {
-        allowDestructuring: true
-      }
-    ],
-    '@typescript-eslint/no-unnecessary-condition': 'off',
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/no-non-null-assertion': 'off',
-    '@typescript-eslint/consistent-type-assertions': 'off',
-    '@typescript-eslint/consistent-type-imports': [
-      'error',
-      {
-        prefer: 'type-imports',
-        disallowTypeAnnotations: false
-      }
-    ],
-    '@typescript-eslint/ban-ts-comment': 'off',
-    '@typescript-eslint/array-type': 'off',
-    '@typescript-eslint/no-unused-vars': ['warn', {
-      args: 'after-used',
-      argsIgnorePattern: '^_',
-      caughtErrors: 'none',
-      ignoreRestSiblings: true
-    }],
-
-    // vue
     'vue/eqeqeq': 'error',
     'vue/object-curly-spacing': ['error', 'always'],
     'vue/require-direct-export': 'error',
@@ -235,12 +240,15 @@ module.exports = defineConfig({
     'vue/comment-directive': 'off',
     'vue/multi-word-component-names': 'off',
     'vue/no-setup-props-destructure': 'off',
-    'vue/require-default-prop': 'off'
+    'vue/require-default-prop': 'off',
+    'vue/padding-line-between-blocks': ['error', 'always']
   },
   overrides: [
     {
       files: ['*.vue'],
       rules: {
+        // Need override for vue files, otherwise typescript rules will not effective
+        ...typeScriptRules,
         'no-unused-vars': 'off',
         'no-undef': 'off',
         '@typescript-eslint/no-unused-vars': 'off',
