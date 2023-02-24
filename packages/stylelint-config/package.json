@@ -1,6 +1,6 @@
 {
   "name": "@vexip-ui/stylelint-config",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "license": "MIT",
   "author": "qmhc",
   "homepage": "https://github.com/vexip-ui/lint-config",
@@ -31,7 +31,9 @@
   "pnpm": {
     "peerDependencyRules": {
       "allowedVersions": {
-        "allowAny": ["stylelint"]
+        "allowAny": [
+          "stylelint"
+        ]
       }
     }
   }
