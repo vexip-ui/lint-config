@@ -1,3 +1,12 @@
+# [0.3.0](https://github.com/vexip-ui/lint-config/compare/stylelint-config@0.2.1...stylelint-config@0.3.0) (2023-04-20)
+
+
+### Features
+
+* **stylelint-config:** dep recommended config ([ab34c6d](https://github.com/vexip-ui/lint-config/commit/ab34c6da32bbdc46776fe207f107199f7f1bf24c))
+
+
+
 ## [0.2.1](https://github.com/vexip-ui/lint-config/compare/stylelint-config@0.2.0...stylelint-config@0.2.1) (2023-02-24)
 
 
