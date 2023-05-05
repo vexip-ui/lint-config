@@ -11,7 +11,6 @@ module.exports = {
   rules: {
     'no-empty-source': process.env.NODE_ENV === 'production' ? true : null,
     'block-no-empty': process.env.NODE_ENV === 'production' ? true : null,
-    'string-quotes': 'single',
     'at-rule-no-unknown': null,
     'at-rule-no-vendor-prefix': true,
     'declaration-property-value-disallowed-list': {
