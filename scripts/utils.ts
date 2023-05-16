@@ -1,7 +1,8 @@
+import { existsSync, lstatSync, readdirSync, rmdirSync, unlinkSync } from 'node:fs'
 import { resolve } from 'node:path'
-import { readdirSync, existsSync, lstatSync, rmdirSync, unlinkSync } from 'node:fs'
+
 import execa from 'execa'
-import { bgYellow, bgCyan, bgGreen, bgRed, yellow, cyan, green, red, lightBlue } from 'kolorist'
+import { bgCyan, bgGreen, bgRed, bgYellow, cyan, green, lightBlue, red, yellow } from 'kolorist'
 import prompts from 'prompts'
 
 import type { Options } from 'execa'

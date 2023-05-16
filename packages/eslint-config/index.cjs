@@ -59,32 +59,30 @@ const typeScriptRules = {
     'error',
     {
       groups: [
-        [
-          'builtin',
-          'external',
-          'internal',
-          'parent',
-          'index',
-          'sibling',
-          'object',
-          'unknown'
-        ],
+        'unknown',
+        ['builtin', 'external', 'internal', 'parent', 'index', 'sibling', 'object'],
         'type'
       ],
       pathGroups: [
         {
-          pattern: '{vitest,vue,vue-router,pinia,vuex,vue-i18n,@vue/*}',
+          pattern: '**/*.{css,scss,sass,less,styl,stylus,json,xml}',
+          group: 'unknown',
+          position: 'before'
+        },
+        {
+          pattern: 'node:*',
+          group: 'builtin',
+          position: 'before'
+        },
+        {
+          pattern: '{vitest,vue,vue-router,pinia,vuex,vue-i18n,axios,@vue/*}',
           group: 'external',
           position: 'before'
         }
       ],
-      pathGroupsExcludedImportTypes: ['type'],
-      'newlines-between': 'always',
-      warnOnUnassignedImports: true,
-      alphabetize: {
-        order: 'asc',
-        caseInsensitive: true
-      }
+      pathGroupsExcludedImportTypes: ['unknown', 'type'],
+      'newlines-between': 'always-and-inside-groups',
+      warnOnUnassignedImports: false
     }
   ],
   'sort-imports': [
