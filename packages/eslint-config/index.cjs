@@ -70,7 +70,7 @@ const typeScriptRules = {
           position: 'before'
         },
         {
-          pattern: 'node:**/*',
+          pattern: '{node:*,node:**/*}',
           group: 'builtin',
           position: 'before'
         },
