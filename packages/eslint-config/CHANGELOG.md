@@ -1,3 +1,12 @@
+## [0.6.3](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.6.2...eslint-config@0.6.3) (2023-05-16)
+
+
+### Bug Fixes
+
+* **eslint-config:** should both node:* and node:**/* patterns ([ed5231e](https://github.com/vexip-ui/lint-config/commit/ed5231ee971f154fcaf92da862344bd16e6d5b1d))
+
+
+
 ## [0.6.2](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.6.1...eslint-config@0.6.2) (2023-05-16)
 
 
