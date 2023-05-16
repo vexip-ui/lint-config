@@ -54,6 +54,8 @@ const typeScriptRules = {
   'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
   'no-return-assign': 'off',
 
+  'import/no-mutable-exports': 'error',
+
   ...fromEntries(equivalents.map((name) => [name, 'off'])),
   ...fromEntries(equivalents.map((name) => [`@typescript-eslint/${name}`, ruleFromStandard(name)])),
 
