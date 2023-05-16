@@ -55,6 +55,48 @@ const typeScriptRules = {
   'no-return-assign': 'off',
 
   'import/no-mutable-exports': 'error',
+  'import/order': [
+    'error',
+    {
+      groups: [
+        [
+          'builtin',
+          'external',
+          'internal',
+          'parent',
+          'index',
+          'sibling',
+          'object',
+          'unknown'
+        ],
+        'type'
+      ],
+      pathGroups: [
+        {
+          pattern: '{vitest,vue,vue-router,pinia,vuex,vue-i18n,@vue/*}',
+          group: 'external',
+          position: 'before'
+        }
+      ],
+      pathGroupsExcludedImportTypes: ['type'],
+      'newlines-between': 'always',
+      warnOnUnassignedImports: true,
+      alphabetize: {
+        order: 'asc',
+        caseInsensitive: true
+      }
+    }
+  ],
+  'sort-imports': [
+    'error',
+    {
+      ignoreCase: false,
+      ignoreDeclarationSort: true,
+      ignoreMemberSort: false,
+      memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
+      allowSeparatedGroups: false
+    }
+  ],
 
   ...fromEntries(equivalents.map((name) => [name, 'off'])),
   ...fromEntries(equivalents.map((name) => [`@typescript-eslint/${name}`, ruleFromStandard(name)])),
