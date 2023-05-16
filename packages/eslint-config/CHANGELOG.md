@@ -1,3 +1,12 @@
+## [0.6.1](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.6.0...eslint-config@0.6.1) (2023-05-16)
+
+
+### Bug Fixes
+
+* **eslint-config:** unexpected change improts order of side effects ([b3d266d](https://github.com/vexip-ui/lint-config/commit/b3d266d510634a4557efc27cdfbda49e38b41b9d))
+
+
+
 # [0.6.0](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.5.2...eslint-config@0.6.0) (2023-05-16)
 
 
