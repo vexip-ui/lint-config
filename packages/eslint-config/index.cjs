@@ -1,5 +1,5 @@
-const { defineConfig } = require('eslint-define-config')
 const configStandard = require('eslint-config-standard/.eslintrc.json')
+const { defineConfig } = require('eslint-define-config')
 const equivalents = [
   'indent',
   'no-unused-vars',
