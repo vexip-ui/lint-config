@@ -1,3 +1,13 @@
+# [0.6.0](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.5.2...eslint-config@0.6.0) (2023-05-16)
+
+
+### Features
+
+* **eslint-config:** add import/no-mutable-exports rule ([bdaa482](https://github.com/vexip-ui/lint-config/commit/bdaa4824bfcd0548d8f5617dbbda0392bd7daf6c))
+* **eslint-config:** add rules for sorting imports ([f445a86](https://github.com/vexip-ui/lint-config/commit/f445a868d4d530947a488a96b1274e66ab9a2104))
+
+
+
 ## [0.5.2](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.5.1...eslint-config@0.5.2) (2023-02-24)
 
 
