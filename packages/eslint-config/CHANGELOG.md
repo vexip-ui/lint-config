@@ -1,3 +1,12 @@
+## [0.6.2](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.6.1...eslint-config@0.6.2) (2023-05-16)
+
+
+### Bug Fixes
+
+* **eslint-config:** import pattern node:**/* ([c0a59f2](https://github.com/vexip-ui/lint-config/commit/c0a59f2716357a983077b8de06576b4bbe381ff5))
+
+
+
 ## [0.6.1](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.6.0...eslint-config@0.6.1) (2023-05-16)
 
 
