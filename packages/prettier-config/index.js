@@ -11,6 +11,7 @@ module.exports = {
   trailingComma: 'none',
   useTabs: false,
   vueIndentScriptAndStyle: false,
+  jsxSingleQuote: true,
   overrides: [
     {
       files: '*.md',
