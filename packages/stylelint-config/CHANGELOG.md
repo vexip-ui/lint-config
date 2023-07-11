@@ -1,3 +1,12 @@
+## [0.5.2](https://github.com/vexip-ui/lint-config/compare/stylelint-config@0.5.1...stylelint-config@0.5.2) (2023-07-11)
+
+
+### Bug Fixes
+
+* **stylelint-config:** ignore media-query-no-invalid for vue ([1476f27](https://github.com/vexip-ui/lint-config/commit/1476f2700b2578ff81b4a608b6656e7085c10903))
+
+
+
 ## [0.5.1](https://github.com/vexip-ui/lint-config/compare/stylelint-config@0.5.0...stylelint-config@0.5.1) (2023-07-11)
 
 
