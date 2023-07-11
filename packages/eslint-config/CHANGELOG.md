@@ -1,3 +1,12 @@
+# [0.8.0](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.7.4...eslint-config@0.8.0) (2023-07-11)
+
+
+### Features
+
+* **eslint-config:** support jsx syntax ([155695c](https://github.com/vexip-ui/lint-config/commit/155695c29c7bd5b6328eb2df831ec42ae413bfb8))
+
+
+
 ## [0.7.4](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.7.3...eslint-config@0.7.4) (2023-07-11)
 
 ## [0.7.3](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.7.2...eslint-config@0.7.3) (2023-07-11)
