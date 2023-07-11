@@ -225,6 +225,7 @@ module.exports = defineConfig({
   parserOptions: {
     ecmaVersion: 'latest'
   },
+  plugins: ['react'],
   reportUnusedDisableDirectives: true,
   settings: {
     'import/resolver': {
