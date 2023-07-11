@@ -99,7 +99,6 @@ const typeScriptRules = {
   ...fromEntries(equivalents.map((name) => [name, 'off'])),
   ...fromEntries(equivalents.map((name) => [`@typescript-eslint/${name}`, ruleFromStandard(name)])),
 
-  '@typescript-eslint/no-unused-vars': 'off',
   '@typescript-eslint/indent': ['error', 2, {
     SwitchCase: 1,
     VariableDeclarator: 1,
@@ -192,12 +191,13 @@ const typeScriptRules = {
   ],
   '@typescript-eslint/ban-ts-comment': 'off',
   '@typescript-eslint/array-type': 'off',
-  '@typescript-eslint/no-unused-vars': ['warn', {
-    args: 'after-used',
-    argsIgnorePattern: '^_',
-    caughtErrors: 'none',
-    ignoreRestSiblings: true
-  }]
+  // '@typescript-eslint/no-unused-vars': ['warn', {
+  //   args: 'after-used',
+  //   argsIgnorePattern: '^_',
+  //   caughtErrors: 'none',
+  //   ignoreRestSiblings: true
+  // }]
+  '@typescript-eslint/no-unused-vars': 'off'
 }
 
 module.exports = defineConfig({
