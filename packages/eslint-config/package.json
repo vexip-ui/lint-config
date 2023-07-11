@@ -1,6 +1,6 @@
 {
   "name": "@vexip-ui/eslint-config",
-  "version": "0.7.2",
+  "version": "0.7.3",
   "license": "MIT",
   "author": "qmhc",
   "homepage": "https://github.com/vexip-ui/lint-config",
@@ -15,8 +15,8 @@
     "./package.json": "./package.json"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^6.0.0",
-    "@typescript-eslint/parser": "^6.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
     "@vue/eslint-config-typescript": "^11.0.3",
     "eslint-config-standard": "^17.1.0",
     "eslint-define-config": "^1.21.0",
