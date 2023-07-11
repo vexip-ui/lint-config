@@ -1,3 +1,12 @@
+## [0.8.1](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.8.0...eslint-config@0.8.1) (2023-07-11)
+
+
+### Bug Fixes
+
+* **eslint-config:** specify plugins option to resolve plugins ([476a2a9](https://github.com/vexip-ui/lint-config/commit/476a2a9a86dbb7fb724b6253244d42f3b278773b))
+
+
+
 # [0.8.0](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.7.4...eslint-config@0.8.0) (2023-07-11)
 
 
