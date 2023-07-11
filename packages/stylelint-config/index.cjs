@@ -64,7 +64,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['*.scss'],
+      files: ['*.scss', '*.vue'],
       rules: {
         'media-query-no-invalid': null
       }
