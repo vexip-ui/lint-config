@@ -1,3 +1,12 @@
+## [0.7.2](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.7.1...eslint-config@0.7.2) (2023-07-11)
+
+
+### Bug Fixes
+
+* **eslint-config:** off @typescript-eslint/no-unused-vars ([61756e9](https://github.com/vexip-ui/lint-config/commit/61756e9776abf6980fa00ff2cf3e818bd9858381))
+
+
+
 ## [0.7.1](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.7.0...eslint-config@0.7.1) (2023-07-11)
 
 
