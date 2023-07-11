@@ -10,7 +10,14 @@
     "commitlint-config"
   ],
   "main": "index.js",
+  "exports": {
+    ".": "./index.cjs",
+    "./package.json": "./package.json"
+  },
   "dependencies": {
-    "@commitlint/config-conventional": "^17.1.0"
+    "@commitlint/config-conventional": "^17.6.6"
+  },
+  "peerDependencies": {
+    "@commitlint/cli": "*"
   }
 }

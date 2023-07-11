@@ -10,10 +10,14 @@
     "prettier-config"
   ],
   "main": "index.js",
+  "exports": {
+    ".": "./index.cjs",
+    "./package.json": "./package.json"
+  },
   "peerDependencies": {
     "prettier": ">=2.5.0"
   },
   "devDependencies": {
-    "prettier": "^2.7.1"
+    "prettier": "^2.8.8"
   }
 }

@@ -1,4 +1,3 @@
-
 import fs from 'node:fs'
 
 import minimist from 'minimist'
