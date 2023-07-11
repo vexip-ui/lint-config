@@ -43,14 +43,14 @@ function ruleFromStandard(name) {
  */
 const typeScriptRules = {
   'no-console':
-      process.env.NODE_ENV === 'production'
-        ? [
-            'error',
-            {
-              allow: ['warn', 'error']
-            }
-          ]
-        : 'off',
+    process.env.NODE_ENV === 'production'
+      ? [
+          'error',
+          {
+            allow: ['warn', 'error']
+          }
+        ]
+      : 'off',
   'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
   'no-return-assign': 'off',
 
@@ -96,47 +96,51 @@ const typeScriptRules = {
     }
   ],
 
-  ...fromEntries(equivalents.map((name) => [name, 'off'])),
-  ...fromEntries(equivalents.map((name) => [`@typescript-eslint/${name}`, ruleFromStandard(name)])),
+  ...fromEntries(equivalents.map(name => [name, 'off'])),
+  ...fromEntries(equivalents.map(name => [`@typescript-eslint/${name}`, ruleFromStandard(name)])),
 
-  '@typescript-eslint/indent': ['error', 2, {
-    SwitchCase: 1,
-    VariableDeclarator: 1,
-    outerIIFEBody: 1,
-    MemberExpression: 1,
-    FunctionDeclaration: { parameters: 1, body: 1 },
-    FunctionExpression: { parameters: 1, body: 1 },
-    CallExpression: { arguments: 1 },
-    ArrayExpression: 1,
-    ObjectExpression: 1,
-    ImportDeclaration: 1,
-    flatTernaryExpressions: false,
-    ignoreComments: false,
-    ignoredNodes: [
-      'TemplateLiteral *',
-      'JSXElement',
-      'JSXElement > *',
-      'JSXAttribute',
-      'JSXIdentifier',
-      'JSXNamespacedName',
-      'JSXMemberExpression',
-      'JSXSpreadAttribute',
-      'JSXExpressionContainer',
-      'JSXOpeningElement',
-      'JSXClosingElement',
-      'JSXFragment',
-      'JSXOpeningFragment',
-      'JSXClosingFragment',
-      'JSXText',
-      'JSXEmptyExpression',
-      'JSXSpreadChild',
-      'TSTypeParameterInstantiation',
-      'FunctionExpression > .params[decorators.length > 0]',
-      'FunctionExpression > .params > :matches(Decorator, :not(:first-child))',
-      'ClassBody.body > PropertyDefinition[decorators.length > 0] > .key'
-    ],
-    offsetTernaryExpressions: true
-  }],
+  '@typescript-eslint/indent': [
+    'error',
+    2,
+    {
+      SwitchCase: 1,
+      VariableDeclarator: 1,
+      outerIIFEBody: 1,
+      MemberExpression: 1,
+      FunctionDeclaration: { parameters: 1, body: 1 },
+      FunctionExpression: { parameters: 1, body: 1 },
+      CallExpression: { arguments: 1 },
+      ArrayExpression: 1,
+      ObjectExpression: 1,
+      ImportDeclaration: 1,
+      flatTernaryExpressions: false,
+      ignoreComments: false,
+      ignoredNodes: [
+        'TemplateLiteral *',
+        'JSXElement',
+        'JSXElement > *',
+        'JSXAttribute',
+        'JSXIdentifier',
+        'JSXNamespacedName',
+        'JSXMemberExpression',
+        'JSXSpreadAttribute',
+        'JSXExpressionContainer',
+        'JSXOpeningElement',
+        'JSXClosingElement',
+        'JSXFragment',
+        'JSXOpeningFragment',
+        'JSXClosingFragment',
+        'JSXText',
+        'JSXEmptyExpression',
+        'JSXSpreadChild',
+        'TSTypeParameterInstantiation',
+        'FunctionExpression > .params[decorators.length > 0]',
+        'FunctionExpression > .params > :matches(Decorator, :not(:first-child))',
+        'ClassBody.body > PropertyDefinition[decorators.length > 0] > .key'
+      ],
+      offsetTernaryExpressions: true
+    }
+  ],
   '@typescript-eslint/no-explicit-any': 'off',
   '@typescript-eslint/strict-boolean-expressions': 'off',
   '@typescript-eslint/space-before-function-paren': [
@@ -191,17 +195,21 @@ const typeScriptRules = {
   ],
   '@typescript-eslint/ban-ts-comment': 'off',
   '@typescript-eslint/array-type': 'off',
-  '@typescript-eslint/no-unused-vars': ['warn', {
-    args: 'after-used',
-    argsIgnorePattern: '^_',
-    caughtErrors: 'none',
-    ignoreRestSiblings: true
-  }]
+  '@typescript-eslint/no-unused-vars': [
+    'warn',
+    {
+      args: 'after-used',
+      argsIgnorePattern: '^_',
+      caughtErrors: 'none',
+      ignoreRestSiblings: true
+    }
+  ]
 }
 
 module.exports = defineConfig({
   extends: [
     'standard',
+    'standard-jsx',
     'plugin:jsonc/recommended-with-jsonc',
     'plugin:yml/standard',
     'plugin:markdown/recommended',
@@ -221,16 +229,7 @@ module.exports = defineConfig({
   settings: {
     'import/resolver': {
       node: {
-        extensions: [
-          '.mts',
-          '.ts',
-          '.tsx',
-          '.mjs',
-          '.js',
-          '.jsx',
-          '.json',
-          '.node'
-        ]
+        extensions: ['.mts', '.ts', '.tsx', '.mjs', '.js', '.jsx', '.json', '.node']
       }
     }
   },
@@ -298,6 +297,37 @@ module.exports = defineConfig({
       }
     },
     {
+      files: ['*.jsx', '*.tsx', '*.vue'],
+      rules: {
+        'no-sequences': 'off',
+        'react/self-closing-comp': 'off',
+        'react/jsx-key': [
+          'error',
+          {
+            checkFragmentShorthand: false,
+            checkKeyMustBeforeSpread: true,
+            warnOnDuplicates: true
+          }
+        ],
+        'react/jsx-curly-brace-presence': [
+          'error',
+          {
+            props: 'always',
+            children: 'always',
+            propElementValues: 'always'
+          }
+        ],
+        'react/jsx-pascal-case': [
+          'error',
+          {
+            allowAllCaps: true
+          }
+        ],
+        'react/jsx-closing-tag-location': 'off',
+        'react/no-children-prop': 'off'
+      }
+    },
+    {
       files: ['*.d.ts'],
       rules: {
         '@typescript-eslint/no-empty-interface': 'off',
@@ -313,20 +343,11 @@ module.exports = defineConfig({
         'jsonc/comma-dangle': ['error', 'never'],
         'jsonc/comma-style': ['error', 'last'],
         'jsonc/indent': ['error', 2],
-        'jsonc/key-spacing': [
-          'error',
-          { beforeColon: false, afterColon: true }
-        ],
+        'jsonc/key-spacing': ['error', { beforeColon: false, afterColon: true }],
         'jsonc/no-octal-escape': 'error',
-        'jsonc/object-curly-newline': [
-          'error',
-          { multiline: true, consistent: true }
-        ],
+        'jsonc/object-curly-newline': ['error', { multiline: true, consistent: true }],
         'jsonc/object-curly-spacing': ['error', 'always'],
-        'jsonc/object-property-newline': [
-          'error',
-          { allowMultiplePropertiesPerLine: true }
-        ]
+        'jsonc/object-property-newline': ['error', { allowMultiplePropertiesPerLine: true }]
       }
     },
     {

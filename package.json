@@ -7,7 +7,7 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "lint": "eslint --fix .",
-    "prettier": "prettier --write \"**/*.{ts,js,json,md}\"",
+    "prettier": "prettier --write \"**/*.{js,cjs,ts,json,md}\"",
     "release": "tsx scripts/release.ts"
   },
   "devDependencies": {
