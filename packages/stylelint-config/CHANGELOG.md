@@ -1,3 +1,17 @@
+## [0.5.1](https://github.com/vexip-ui/lint-config/compare/stylelint-config@0.5.0...stylelint-config@0.5.1) (2023-07-11)
+
+
+### Bug Fixes
+
+* **stylelint-config:** off media-query-no-invalid rule ([6d55ba3](https://github.com/vexip-ui/lint-config/commit/6d55ba33a2367a3693a1bf4234cc3ebf67f7589a))
+
+
+### Features
+
+* **eslint-config:** support jsx syntax ([155695c](https://github.com/vexip-ui/lint-config/commit/155695c29c7bd5b6328eb2df831ec42ae413bfb8))
+
+
+
 # [0.5.0](https://github.com/vexip-ui/lint-config/compare/stylelint-config@0.4.0...stylelint-config@0.5.0) (2023-07-11)
 
 # [0.4.0](https://github.com/vexip-ui/lint-config/compare/stylelint-config@0.3.0...stylelint-config@0.4.0) (2023-05-05)
