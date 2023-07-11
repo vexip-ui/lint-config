@@ -9,7 +9,7 @@
     "stylelint",
     "stylelint-config"
   ],
-  "main": "index.js",
+  "main": "index.cjs",
   "exports": {
     ".": "./index.cjs",
     "./package.json": "./package.json"

@@ -29,20 +29,14 @@ main().catch(error => {
 })
 
 async function main() {
-  const {
-    pkgName,
-    pkgDir,
-    pkgPath,
-    pkg,
-    currentVersion
-  } = await getPackageInfo(inputPkg)
-  const preId = args.preid || args.p || (semver.prerelease(currentVersion)?.[0])
+  const { pkgName, pkgDir, pkgPath, pkg, currentVersion } = await getPackageInfo(inputPkg)
+  const preId = args.preid || args.p || semver.prerelease(currentVersion)?.[0]
 
   const versionIncrements: ReleaseType[] = [
     'patch',
     'minor',
     'major',
-    ...(preId ? ['prepatch', 'preminor', 'premajor', 'prerelease'] as const : [])
+    ...(preId ? (['prepatch', 'preminor', 'premajor', 'prerelease'] as const) : [])
   ]
 
   const inc = (i: ReleaseType) => semver.inc(currentVersion, i, preId)
@@ -59,11 +53,13 @@ async function main() {
 
   const version =
     release === 'custom'
-      ? (await prompts({
-          type: 'text',
-          name: 'version',
-          message: 'Input custom version:'
-        })).version
+      ? (
+          await prompts({
+            type: 'text',
+            name: 'version',
+            message: 'Input custom version:'
+          })
+        ).version
       : release.match(/\((.*)\)/)![1]
 
   if (!semver.valid(version)) {

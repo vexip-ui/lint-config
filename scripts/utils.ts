@@ -1,11 +1,14 @@
-import { existsSync, lstatSync, readdirSync, rmdirSync, unlinkSync } from 'node:fs'
 import { resolve } from 'node:path'
+import { existsSync, lstatSync, readFileSync, readdirSync, rmdirSync, unlinkSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
 
-import execa from 'execa'
+import { execa } from 'execa'
 import { bgCyan, bgGreen, bgRed, bgYellow, cyan, green, lightBlue, red, yellow } from 'kolorist'
 import prompts from 'prompts'
 
 import type { Options } from 'execa'
+
+export const rootDir = resolve(fileURLToPath(import.meta.url), '../..')
 
 type LogFn = () => void
 
@@ -41,7 +44,7 @@ export const logger = {
 }
 
 export function bin(name: string) {
-  return resolve(__dirname, '../node_modules/.bin/' + name)
+  return resolve(rootDir, 'node_modules/.bin/' + name)
 }
 
 export async function run(bin: string, args: string[], opts: Options = {}) {
@@ -78,7 +81,11 @@ export function toCamelCase(value: string) {
   return capitalName.charAt(0).toLowerCase() + capitalName.slice(1)
 }
 
-export async function runParallel<T>(maxConcurrency: number, source: T[], iteratorFn: (item: T, source: T[]) => Promise<any>) {
+export async function runParallel<T>(
+  maxConcurrency: number,
+  source: T[],
+  iteratorFn: (item: T, source: T[]) => Promise<any>
+) {
   const ret: Array<Promise<any>> = []
   const executing: Array<Promise<any>> = []
 
@@ -118,7 +125,7 @@ export function emptyDir(dir: string) {
   }
 }
 
-const packages = readdirSync(resolve(__dirname, '../packages'))
+const packages = readdirSync(resolve(rootDir, 'packages'))
 
 export async function getPackageInfo(inputPkg: string) {
   let pkgName: string | null = null
@@ -133,12 +140,14 @@ export async function getPackageInfo(inputPkg: string) {
     } else if (options.length === 1) {
       pkgName = options[0]
     } else {
-      pkgName = (await prompts({
-        type: 'select',
-        name: 'pkgName',
-        message: 'Select release package:',
-        choices: options.map(n => ({ title: n, value: n }))
-      })).pkgName
+      pkgName = (
+        await prompts({
+          type: 'select',
+          name: 'pkgName',
+          message: 'Select release package:',
+          choices: options.map(n => ({ title: n, value: n }))
+        })
+      ).pkgName
     }
   }
 
@@ -146,14 +155,15 @@ export async function getPackageInfo(inputPkg: string) {
     throw new Error('Release package must not be null')
   }
 
-  const pkgDir = resolve(__dirname, `../packages/${pkgName}`)
+  const pkgDir = resolve(rootDir, `packages/${pkgName}`)
   const pkgPath = resolve(pkgDir, 'package.json')
 
   if (!existsSync(pkgPath)) {
     throw new Error(`Release package ${pkgName} not found`)
   }
 
-  const pkg = require(pkgPath)
+  const rawPkg = readFileSync(pkgPath, 'utf-8')
+  const pkg = JSON.parse(rawPkg)
 
   if (pkg.private) {
     throw new Error(`Release package ${pkgName} is private`)
