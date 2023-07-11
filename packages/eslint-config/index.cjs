@@ -99,6 +99,7 @@ const typeScriptRules = {
   ...fromEntries(equivalents.map((name) => [name, 'off'])),
   ...fromEntries(equivalents.map((name) => [`@typescript-eslint/${name}`, ruleFromStandard(name)])),
 
+  '@typescript-eslint/no-unused-vars': 'off',
   '@typescript-eslint/indent': ['error', 2, {
     SwitchCase: 1,
     VariableDeclarator: 1,
