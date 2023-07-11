@@ -62,6 +62,14 @@ module.exports = {
     'scss/dollar-variable-empty-line-before': null,
     'scss/operator-no-newline-after': null
   },
+  overrides: [
+    {
+      files: ['*.scss'],
+      rules: {
+        'media-query-no-invalid': null
+      }
+    }
+  ],
   ignoreFiles: [
     'node_modules',
     'dist',
