@@ -191,13 +191,12 @@ const typeScriptRules = {
   ],
   '@typescript-eslint/ban-ts-comment': 'off',
   '@typescript-eslint/array-type': 'off',
-  // '@typescript-eslint/no-unused-vars': ['warn', {
-  //   args: 'after-used',
-  //   argsIgnorePattern: '^_',
-  //   caughtErrors: 'none',
-  //   ignoreRestSiblings: true
-  // }]
-  '@typescript-eslint/no-unused-vars': 'off'
+  '@typescript-eslint/no-unused-vars': ['warn', {
+    args: 'after-used',
+    argsIgnorePattern: '^_',
+    caughtErrors: 'none',
+    ignoreRestSiblings: true
+  }]
 }
 
 module.exports = defineConfig({
