@@ -11,28 +11,29 @@
     "release": "tsx scripts/release.ts"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.6.6",
-    "@types/minimist": "^1.2.2",
-    "@types/node": "^20.4.1",
-    "@types/prompts": "^2.4.4",
-    "@types/semver": "^7.5.0",
-    "conventional-changelog-cli": "^3.0.0",
-    "eslint": "^8.44.0",
-    "execa": "7.1.1",
+    "@commitlint/cli": "^18.0.0",
+    "@types/minimist": "^1.2.4",
+    "@types/node": "^20.8.8",
+    "@types/prompts": "^2.4.7",
+    "@types/semver": "^7.5.4",
+    "conventional-changelog-cli": "^4.1.0",
+    "eslint": "^8.52.0",
+    "execa": "8.0.1",
     "husky": "^8.0.3",
     "is-ci": "^3.0.1",
     "kolorist": "^1.8.0",
-    "lint-staged": "^13.2.3",
+    "lint-staged": "^15.0.2",
     "minimist": "^1.2.8",
-    "prettier": "^2.8.8",
+    "prettier": "^3.0.3",
     "prompts": "^2.4.2",
     "semver": "^7.5.4",
-    "tsx": "^3.12.7",
-    "typescript": "^5.1.6"
+    "tsx": "^3.14.0",
+    "typescript": "^5.2.2"
   },
   "pnpm": {
     "peerDependencyRules": {
       "allowAny": [
+        "stylelint",
         "@csstools/*"
       ]
     }

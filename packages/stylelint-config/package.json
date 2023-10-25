@@ -15,31 +15,21 @@
     "./package.json": "./package.json"
   },
   "dependencies": {
-    "postcss": "^8.4.25",
+    "postcss": "^8.4.31",
     "postcss-html": "^1.5.0",
-    "postcss-preset-env": "^9.0.0",
+    "postcss-preset-env": "^9.2.0",
     "stylelint-config-html": "^1.1.0",
-    "stylelint-config-recess-order": "^4.2.0",
+    "stylelint-config-recess-order": "^4.3.0",
     "stylelint-config-recommended": "^13.0.0",
     "stylelint-config-recommended-vue": "^1.5.0",
     "stylelint-config-standard": "^34.0.0",
-    "stylelint-config-standard-scss": "^10.0.0",
+    "stylelint-config-standard-scss": "^11.0.0",
     "stylelint-order": "^6.0.3"
   },
   "peerDependencies": {
     "stylelint": ">=15"
   },
   "devDependencies": {
-    "stylelint": "^15.10.1"
-  },
-  "pnpm": {
-    "peerDependencyRules": {
-      "allowedVersions": {
-        "allowAny": [
-          "stylelint",
-          "@csstools/*"
-        ]
-      }
-    }
+    "stylelint": "^15.11.0"
   }
 }
