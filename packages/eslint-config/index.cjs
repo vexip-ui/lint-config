@@ -302,14 +302,7 @@ module.exports = defineConfig({
       rules: {
         'no-sequences': 'off',
         'react/self-closing-comp': 'off',
-        'react/jsx-key': [
-          'error',
-          {
-            checkFragmentShorthand: false,
-            checkKeyMustBeforeSpread: true,
-            warnOnDuplicates: true
-          }
-        ],
+        'react/jsx-key': 'off',
         'react/jsx-curly-brace-presence': [
           'error',
           {
