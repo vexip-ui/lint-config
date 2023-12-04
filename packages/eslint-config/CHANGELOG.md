@@ -1,3 +1,12 @@
+# [0.10.0](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.9.0...eslint-config@0.10.0) (2023-12-04)
+
+
+### Bug Fixes
+
+* **eslint-config:** off react/jsx-key rule ([c29c3db](https://github.com/vexip-ui/lint-config/commit/c29c3db8ca757584cd907f9395ce5a5957217c7a))
+
+
+
 # [0.9.0](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.8.1...eslint-config@0.9.0) (2023-10-25)
 
 
