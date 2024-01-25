@@ -1,3 +1,7 @@
+# [1.1.0](https://github.com/vexip-ui/lint-config/compare/stylelint-config@1.0.0...stylelint-config@1.1.0) (2024-01-25)
+
+
+
 # [1.0.0](https://github.com/vexip-ui/lint-config/compare/stylelint-config@0.7.0...stylelint-config@1.0.0) (2023-12-15)
 
 
