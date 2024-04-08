@@ -1,3 +1,12 @@
+## [0.12.1](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.12.0...eslint-config@0.12.1) (2024-04-08)
+
+
+### Bug Fixes
+
+* **eslint-config:** manually set standard rules ([44b6ce8](https://github.com/vexip-ui/lint-config/commit/44b6ce8dae37bd23c221bb237a8f6fbff57f6ad4))
+
+
+
 # [0.12.0](https://github.com/vexip-ui/lint-config/compare/eslint-config@0.11.0...eslint-config@0.12.0) (2024-01-25)
 
 
