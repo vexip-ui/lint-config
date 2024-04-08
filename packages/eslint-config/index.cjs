@@ -208,7 +208,7 @@ const typeScriptRules = {
 
 module.exports = defineConfig({
   extends: [
-    'standard',
+    // 'standard',
     'standard-jsx',
     'plugin:jsonc/recommended-with-jsonc',
     'plugin:yml/standard',
@@ -225,7 +225,12 @@ module.exports = defineConfig({
   parserOptions: {
     ecmaVersion: 'latest'
   },
-  plugins: ['react'],
+  plugins: [
+    'import',
+    'n',
+    'promise',
+    'react'
+  ],
   reportUnusedDisableDirectives: true,
   settings: {
     'import/resolver': {
