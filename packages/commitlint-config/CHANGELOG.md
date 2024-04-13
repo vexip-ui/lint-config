@@ -1,3 +1,7 @@
+# [0.5.0](https://github.com/vexip-ui/lint-config/compare/commitlint-config@0.4.0...commitlint-config@0.5.0) (2024-04-13)
+
+
+
 # [0.4.0](https://github.com/vexip-ui/lint-config/compare/commitlint-config@0.3.0...commitlint-config@0.4.0) (2024-01-25)
 
 
