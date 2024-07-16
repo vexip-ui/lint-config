@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://www.vexipui.com/" target="_blank" rel="noopener noreferrer">
-    <img src="https://github.com/vexip-ui/vexip-ui/raw/main/docs/public/vexip-ui.svg" style="width: 180px;" />
+    <img src="https://github.com/vexip-ui/vexip-ui/raw/main/docs/public/vexip-ui.svg" alt="" style="width: 180px;" />
   </a>
 </p>
 
@@ -32,10 +32,22 @@ module.exports = {
 }
 ```
 
+Or in your `xxxlintrc.mjs`:
+
+```js
+export default {
+  extends: ['@vexip-ui/xxxlint-config']
+}
+```
+
 For `prettierrc.cjs` just a little defferent:
 
 ```js
 module.exports = require('@vexip-ui/prettier-config')
+```
+
+```js
+export { default } from '@vexip-ui/prettier-config'
 ```
 
 ## License
