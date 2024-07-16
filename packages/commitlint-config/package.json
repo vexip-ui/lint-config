@@ -1,19 +1,29 @@
 {
   "name": "@vexip-ui/commitlint-config",
   "version": "0.5.0",
+  "type": "module",
   "license": "MIT",
   "author": "qmhc",
-  "homepage": "https://github.com/vexip-ui/lint-config",
+  "scripts": {
+    "build": "unbuild"
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
   "keywords": [
     "vexip-ui",
     "commitlint",
     "commitlint-config"
   ],
-  "main": "index.cjs",
-  "exports": {
-    ".": "./index.cjs",
-    "./package.json": "./package.json"
-  },
+  "homepage": "https://github.com/vexip-ui/lint-config",
   "dependencies": {
     "@commitlint/config-conventional": "^19.1.0"
   },

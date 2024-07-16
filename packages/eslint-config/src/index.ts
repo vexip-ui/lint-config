@@ -1,5 +1,10 @@
-const configStandard = require('eslint-config-standard/.eslintrc.json')
-const { defineConfig } = require('eslint-define-config')
+import configStandard from 'eslint-config-standard/.eslintrc.json'
+import { defineConfig } from 'eslint-define-config'
+
+import type { Rules } from 'eslint-define-config'
+
+type StandardRuleName = keyof typeof configStandard.rules
+
 const equivalents = [
   'indent',
   'no-unused-vars',
@@ -23,24 +28,24 @@ const equivalents = [
   'no-array-constructor',
   'no-unused-expressions',
   'no-useless-constructor'
-]
+] as const
 
-function fromEntries(iterable) {
-  return [...iterable].reduce((obj, [key, val]) => {
-    obj[key] = val
-    return obj
-  }, {})
+function fromEntries<K extends string, V>(iterable: [K, V][]) {
+  return [...iterable].reduce(
+    (obj, [key, val]) => {
+      obj[key] = val
+      return obj
+    },
+    {} as Record<K, V>
+  )
 }
 
-function ruleFromStandard(name) {
+function ruleFromStandard(name: StandardRuleName) {
   const rule = configStandard.rules[name]
 
   return rule || 'off'
 }
 
-/**
- * @type  {import('eslint-define-config').Rules}
- */
 const typeScriptRules = {
   'no-console':
     process.env.NODE_ENV === 'production'
@@ -204,11 +209,10 @@ const typeScriptRules = {
       ignoreRestSiblings: true
     }
   ]
-}
+} as Partial<Rules>
 
-module.exports = defineConfig({
+export default defineConfig({
   extends: [
-    // 'standard',
     'standard-jsx',
     'plugin:jsonc/recommended-with-jsonc',
     'plugin:yml/standard',
@@ -225,12 +229,7 @@ module.exports = defineConfig({
   parserOptions: {
     ecmaVersion: 'latest'
   },
-  plugins: [
-    'import',
-    'n',
-    'promise',
-    'react'
-  ],
+  plugins: ['import', 'n', 'promise', 'react'],
   reportUnusedDisableDirectives: true,
   settings: {
     'import/resolver': {

@@ -1,4 +1,6 @@
-module.exports = {
+import type { UserConfig } from '@commitlint/types'
+
+export default {
   extends: ['@commitlint/config-conventional'],
   rules: {
     'body-leading-blank': [2, 'always'],
@@ -28,4 +30,4 @@ module.exports = {
       ]
     ]
   }
-}
+} satisfies UserConfig

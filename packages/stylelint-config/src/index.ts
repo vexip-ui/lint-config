@@ -1,4 +1,6 @@
-module.exports = {
+import type { Config } from 'stylelint'
+
+export default {
   defaultSeverity: 'error',
   extends: [
     'stylelint-config-standard',
@@ -86,4 +88,4 @@ module.exports = {
     '*.gif',
     '*.md'
   ]
-}
+} satisfies Config

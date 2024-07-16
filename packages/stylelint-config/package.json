@@ -1,19 +1,29 @@
 {
   "name": "@vexip-ui/stylelint-config",
   "version": "1.1.0",
+  "type": "module",
   "license": "MIT",
   "author": "qmhc",
-  "homepage": "https://github.com/vexip-ui/lint-config",
+  "scripts": {
+    "build": "unbuild"
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
   "keywords": [
     "vexip-ui",
     "stylelint",
     "stylelint-config"
   ],
-  "main": "index.cjs",
-  "exports": {
-    ".": "./index.cjs",
-    "./package.json": "./package.json"
-  },
+  "homepage": "https://github.com/vexip-ui/lint-config",
   "dependencies": {
     "postcss": "^8.4.33",
     "postcss-html": "^1.6.0",
@@ -26,10 +36,10 @@
     "stylelint-config-standard-scss": "^13.0.0",
     "stylelint-order": "^6.0.4"
   },
-  "peerDependencies": {
-    "stylelint": ">=16"
-  },
   "devDependencies": {
     "stylelint": "^16.2.0"
+  },
+  "peerDependencies": {
+    "stylelint": ">=16"
   }
 }

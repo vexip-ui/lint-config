@@ -2,33 +2,34 @@
   "name": "lint-config",
   "type": "module",
   "license": "MIT",
-  "author": "qmhc",
   "private": true,
+  "author": "qmhc",
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
+    "build:all": "tsx scripts/build-all.ts",
     "lint": "eslint --fix .",
     "prettier": "prettier --write \"**/*.{js,cjs,ts,json,md}\"",
     "release": "tsx scripts/release.ts"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.5.0",
+    "@commitlint/types": "^19.0.3",
     "@types/minimist": "^1.2.5",
     "@types/node": "^20.11.6",
     "@types/prompts": "^2.4.9",
     "@types/semver": "^7.5.6",
+    "@vexip-ui/scripts": "^1.1.4",
     "conventional-changelog-cli": "^4.1.0",
     "eslint": "^8.56.0",
-    "execa": "8.0.1",
     "husky": "^9.0.1",
     "is-ci": "^3.0.1",
-    "kolorist": "^1.8.0",
     "lint-staged": "^15.2.0",
     "minimist": "^1.2.8",
     "prettier": "^3.2.4",
     "prompts": "^2.4.2",
     "semver": "^7.5.4",
     "tsx": "^4.7.0",
-    "typescript": "^5.3.3"
+    "typescript": "^5.4.5",
+    "unbuild": "^2.0.0"
   },
   "pnpm": {
     "peerDependencyRules": {
