@@ -1,3 +1,7 @@
+# [1.0.0](https://github.com/vexip-ui/lint-config/compare/prettier-config@0.2.0...prettier-config@1.0.0) (2024-07-16)
+
+
+
 # [0.2.0](https://github.com/vexip-ui/lint-config/compare/prettier-config@0.1.0...prettier-config@0.2.0) (2023-06-13)
 
 ### Features
