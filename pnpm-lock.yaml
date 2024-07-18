@@ -138,7 +138,7 @@ importers:
   packages/prettier-config:
     dependencies:
       prettier:
-        specifier: '>=2.5.0'
+        specifier: '>=3.0.0'
         version: 3.2.4
       prettier-plugin-packagejson:
         specifier: ^2.5.0
