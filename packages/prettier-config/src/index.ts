@@ -1,8 +1,7 @@
 import type { Config } from 'prettier'
-import packagejson from 'prettier-plugin-packagejson'
 
 export default {
-  plugins: [packagejson],
+  plugins: [require('prettier-plugin-packagejson')],
   printWidth: 100,
   arrowParens: 'avoid',
   bracketSpacing: true,
