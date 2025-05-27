@@ -1,3 +1,12 @@
+## [1.0.2](https://github.com/vexip-ui/lint-config/compare/prettier-config@1.0.1...prettier-config@1.0.2) (2025-05-27)
+
+
+### Bug Fixes
+
+* **prettier-config:** include packagejson plugin ([a2ce270](https://github.com/vexip-ui/lint-config/commit/a2ce270fee19d49fe536f7097ee3e4041effc0c6))
+
+
+
 ## [1.0.1](https://github.com/vexip-ui/lint-config/compare/prettier-config@1.0.0...prettier-config@1.0.1) (2025-05-27)
 
 
