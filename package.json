@@ -8,7 +8,8 @@
     "build:all": "tsx scripts/build-all.ts",
     "lint": "eslint --fix .",
     "prettier": "prettier --write \"**/*.{js,cjs,ts,json,md}\"",
-    "release": "tsx scripts/release.ts"
+    "release": "tsx scripts/release.ts",
+    "publish:ci": "tsx scripts/publish.ts"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.5.0",
