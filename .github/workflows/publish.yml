@@ -28,7 +28,7 @@ jobs:
         run: pnpm install
 
       - name: Build packages
-        run: pnpm run build:all
+        run: pnpm run build
 
       - name: Publish package
         run: pnpm run publish:ci ${{ github.ref_name }}

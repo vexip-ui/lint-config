@@ -5,7 +5,7 @@
   "private": true,
   "author": "qmhc",
   "scripts": {
-    "build:all": "tsx scripts/build-all.ts",
+    "build": "pnpm -r run build",
     "lint": "eslint --fix .",
     "prettier": "prettier --write \"**/*.{js,cjs,ts,json,md}\"",
     "release": "tsx scripts/release.ts",
