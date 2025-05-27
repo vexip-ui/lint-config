@@ -1,6 +1,7 @@
 {
   "name": "lint-config",
   "type": "module",
+  "packageManager": "pnpm@10.11.0",
   "license": "MIT",
   "private": true,
   "author": "qmhc",
