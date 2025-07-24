@@ -1,3 +1,12 @@
+# [1.1.0](https://github.com/vexip-ui/lint-config/compare/eslint-config@1.0.3...eslint-config@1.1.0) (2025-07-24)
+
+
+### Features
+
+* **eslint-config:** no-sparse-arrays off & adjust no-empty ([94ec05d](https://github.com/vexip-ui/lint-config/commit/94ec05dbb20f550f276acd91da7f35d515fc31e7))
+
+
+
 ## [1.0.3](https://github.com/vexip-ui/lint-config/compare/eslint-config@1.0.2...eslint-config@1.0.3) (2025-07-24)
 
 
