@@ -1,310 +1,324 @@
-import configStandard from 'eslint-config-standard/.eslintrc.json'
-import { defineConfig } from 'eslint-define-config'
+import eslint from '@eslint/js'
+import vuePlugin from 'eslint-plugin-vue'
+import reactPlugin from 'eslint-plugin-react'
+import jsoncPlugin from 'eslint-plugin-jsonc'
+import ymlPlugin from 'eslint-plugin-yml'
+import markdownPlugin from 'eslint-plugin-markdown'
+import tseslint from 'typescript-eslint'
+import globals from 'globals'
+import importPlugin from 'eslint-plugin-import'
+import stylistic from '@stylistic/eslint-plugin'
 
-import type { Rules } from 'eslint-define-config'
+import type { Linter } from 'eslint'
 
-type StandardRuleName = keyof typeof configStandard.rules
+export interface FactoryOptions {
+  ignores?: string[]
+}
 
-const equivalents = [
-  'indent',
-  'no-unused-vars',
-  'no-redeclare',
-  'no-use-before-define',
-  'brace-style',
-  'comma-dangle',
-  'object-curly-spacing',
-  'semi',
-  'quotes',
-  'space-before-blocks',
-  'space-before-function-paren',
-  'space-infix-ops',
-  'keyword-spacing',
-  'comma-spacing',
-  'no-extra-parens',
-  'no-dupe-class-members',
-  'no-loss-of-precision',
-  'lines-between-class-members',
-  'func-call-spacing',
-  'no-array-constructor',
-  'no-unused-expressions',
-  'no-useless-constructor'
-] as const
+function factory({ ignores = [] }: FactoryOptions = {}) {
+  return tseslint.config(
+    {
+      ignores: [
+        '**/node_modules',
+        '**/dist',
+        '**/public',
+        '**/package-lock.json',
+        '**/yarn.lock',
+        '**/pnpm-lock.yaml',
+        '**/bun.lockb',
 
-function fromEntries<K extends string, V>(iterable: [K, V][]) {
-  return [...iterable].reduce(
-    (obj, [key, val]) => {
-      obj[key] = val
-      return obj
+        '**/output',
+        '**/coverage',
+        '**/temp',
+        '**/.temp',
+        '**/tmp',
+        '**/.tmp',
+        '**/.history',
+        '**/.vitepress/cache',
+        '**/.nuxt',
+        '**/.next',
+        '**/.svelte-kit',
+        '**/.vercel',
+        '**/.changeset',
+        '**/.idea',
+        '**/.cache',
+        '**/.output',
+        '**/.vite-inspect',
+        '**/.yarn',
+        '**/vite.config.*.timestamp-*',
+
+        '**/CHANGELOG*.md',
+        '**/*.min.*',
+        '**/LICENSE*',
+        '**/__snapshots__',
+        '**/auto-import?(s).d.ts',
+        '**/components.d.ts',
+
+        '**/*.md/*.md',
+
+        ...ignores
+      ]
     },
-    {} as Record<K, V>
-  )
-}
+    {
+      extends: [
+        eslint.configs.recommended,
+        ...tseslint.configs.recommended,
+        ...vuePlugin.configs['flat/recommended'],
+      ],
+      files: ['**/*.{js,jsx,mjs,cjs,ts,tsx,vue}'],
+      languageOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+        globals: globals.browser,
+        // parser: vueParser,
+        parserOptions: {
+          parser: tseslint.parser,
+          ecmaVersion: 'latest',
+          ecmaFeatures: {
+            jsx: true
+          }
+        },
+      },
+      plugins: {
+        '@stylistic': stylistic,
+        '@typescript-eslint': tseslint.plugin,
+        import: importPlugin,
+      },
+      settings: {
+        'import/resolver': {
+          node: {
+            extensions: ['.mts', '.ts', '.tsx', '.mjs', '.js', '.jsx', '.json', '.node']
+          }
+        }
+      },
+      rules: {
+        'no-console':
+      process.env.NODE_ENV === 'production'
+        ? [
+            'error',
+            {
+              allow: ['warn', 'error']
+            }
+          ]
+        : 'off',
+        'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+        'no-return-assign': 'off',
 
-function ruleFromStandard(name: StandardRuleName) {
-  const rule = configStandard.rules[name]
-
-  return rule || 'off'
-}
-
-const typeScriptRules = {
-  'no-console':
-    process.env.NODE_ENV === 'production'
-      ? [
+        'import/no-mutable-exports': 'error',
+        'import/order': [
           'error',
           {
-            allow: ['warn', 'error']
+            groups: [
+              'unknown',
+              ['builtin', 'external', 'internal', 'parent', 'index', 'sibling', 'object'],
+              'type'
+            ],
+            pathGroups: [
+              {
+                pattern: '**/*.{css,scss,sass,less,styl,stylus,json,xml}',
+                group: 'unknown',
+                position: 'before'
+              },
+              {
+                pattern: '{node:*,node:**/*}',
+                group: 'builtin',
+                position: 'before'
+              },
+              {
+                pattern: '{vitest,vue,vue-router,pinia,vuex,vue-i18n,axios,@vue/*}',
+                group: 'external',
+                position: 'before'
+              }
+            ],
+            pathGroupsExcludedImportTypes: ['unknown', 'type'],
+            'newlines-between': 'always-and-inside-groups',
+            warnOnUnassignedImports: false
           }
-        ]
-      : 'off',
-  'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-  'no-return-assign': 'off',
+        ],
+        'sort-imports': [
+          'error',
+          {
+            ignoreCase: false,
+            ignoreDeclarationSort: true,
+            ignoreMemberSort: false,
+            memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
+            allowSeparatedGroups: false
+          }
+        ],
 
-  'import/no-mutable-exports': 'error',
-  'import/order': [
-    'error',
-    {
-      groups: [
-        'unknown',
-        ['builtin', 'external', 'internal', 'parent', 'index', 'sibling', 'object'],
-        'type'
-      ],
-      pathGroups: [
-        {
-          pattern: '**/*.{css,scss,sass,less,styl,stylus,json,xml}',
-          group: 'unknown',
-          position: 'before'
-        },
-        {
-          pattern: '{node:*,node:**/*}',
-          group: 'builtin',
-          position: 'before'
-        },
-        {
-          pattern: '{vitest,vue,vue-router,pinia,vuex,vue-i18n,axios,@vue/*}',
-          group: 'external',
-          position: 'before'
-        }
-      ],
-      pathGroupsExcludedImportTypes: ['unknown', 'type'],
-      'newlines-between': 'always-and-inside-groups',
-      warnOnUnassignedImports: false
-    }
-  ],
-  'sort-imports': [
-    'error',
-    {
-      ignoreCase: false,
-      ignoreDeclarationSort: true,
-      ignoreMemberSort: false,
-      memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
-      allowSeparatedGroups: false
-    }
-  ],
+        '@stylistic/indent': [
+          'error',
+          2,
+          {
+            SwitchCase: 1,
+            VariableDeclarator: 1,
+            outerIIFEBody: 1,
+            MemberExpression: 1,
+            FunctionDeclaration: { parameters: 1, body: 1 },
+            FunctionExpression: { parameters: 1, body: 1 },
+            CallExpression: { arguments: 1 },
+            ArrayExpression: 1,
+            ObjectExpression: 1,
+            ImportDeclaration: 1,
+            flatTernaryExpressions: false,
+            ignoreComments: false,
+            ignoredNodes: [
+              'TemplateLiteral *',
+              'JSXElement',
+              'JSXElement > *',
+              'JSXAttribute',
+              'JSXIdentifier',
+              'JSXNamespacedName',
+              'JSXMemberExpression',
+              'JSXSpreadAttribute',
+              'JSXExpressionContainer',
+              'JSXOpeningElement',
+              'JSXClosingElement',
+              'JSXFragment',
+              'JSXOpeningFragment',
+              'JSXClosingFragment',
+              'JSXText',
+              'JSXEmptyExpression',
+              'JSXSpreadChild',
+              'TSTypeParameterInstantiation',
+              'FunctionExpression > .params[decorators.length > 0]',
+              'FunctionExpression > .params > :matches(Decorator, :not(:first-child))',
+              'ClassBody.body > PropertyDefinition[decorators.length > 0] > .key'
+            ],
+            offsetTernaryExpressions: true
+          }
+        ],
+        '@stylistic/space-before-function-paren': [
+          'error',
+          {
+            anonymous: 'always',
+            named: 'never',
+            asyncArrow: 'always'
+          }
+        ],
+        '@stylistic/member-delimiter-style': [
+          'error',
+          {
+            multiline: {
+              delimiter: 'comma',
+              requireLast: false
+            },
+            singleline: {
+              delimiter: 'comma',
+              requireLast: false
+            }
+          }
+        ],
 
-  ...fromEntries(equivalents.map(name => [name, 'off'])),
-  ...fromEntries(equivalents.map(name => [`@typescript-eslint/${name}`, ruleFromStandard(name)])),
+        '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/strict-boolean-expressions': 'off',
+        '@typescript-eslint/no-use-before-define': [
+          'error',
+          {
+            functions: false,
+            classes: false,
+            variables: true,
+            enums: false,
+            typedefs: false
+          }
+        ],
+        
+        '@typescript-eslint/no-inferrable-types': 'error',
+        '@typescript-eslint/no-this-alias': [
+          'error',
+          {
+            allowDestructuring: true
+          }
+        ],
+        '@typescript-eslint/no-unnecessary-condition': 'off',
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
+        '@typescript-eslint/explicit-function-return-type': 'off',
+        '@typescript-eslint/no-non-null-assertion': 'off',
+        '@typescript-eslint/consistent-type-assertions': 'off',
+        '@typescript-eslint/consistent-type-imports': [
+          'error',
+          {
+            prefer: 'type-imports',
+            disallowTypeAnnotations: false
+          }
+        ],
+        '@typescript-eslint/ban-ts-comment': 'off',
+        '@typescript-eslint/array-type': 'off',
+        '@typescript-eslint/no-unused-vars': [
+          'warn',
+          {
+            args: 'after-used',
+            argsIgnorePattern: '^_',
+            caughtErrors: 'none',
+            ignoreRestSiblings: true
+          }
+        ],
 
-  '@typescript-eslint/indent': [
-    'error',
-    2,
-    {
-      SwitchCase: 1,
-      VariableDeclarator: 1,
-      outerIIFEBody: 1,
-      MemberExpression: 1,
-      FunctionDeclaration: { parameters: 1, body: 1 },
-      FunctionExpression: { parameters: 1, body: 1 },
-      CallExpression: { arguments: 1 },
-      ArrayExpression: 1,
-      ObjectExpression: 1,
-      ImportDeclaration: 1,
-      flatTernaryExpressions: false,
-      ignoreComments: false,
-      ignoredNodes: [
-        'TemplateLiteral *',
-        'JSXElement',
-        'JSXElement > *',
-        'JSXAttribute',
-        'JSXIdentifier',
-        'JSXNamespacedName',
-        'JSXMemberExpression',
-        'JSXSpreadAttribute',
-        'JSXExpressionContainer',
-        'JSXOpeningElement',
-        'JSXClosingElement',
-        'JSXFragment',
-        'JSXOpeningFragment',
-        'JSXClosingFragment',
-        'JSXText',
-        'JSXEmptyExpression',
-        'JSXSpreadChild',
-        'TSTypeParameterInstantiation',
-        'FunctionExpression > .params[decorators.length > 0]',
-        'FunctionExpression > .params > :matches(Decorator, :not(:first-child))',
-        'ClassBody.body > PropertyDefinition[decorators.length > 0] > .key'
-      ],
-      offsetTernaryExpressions: true
-    }
-  ],
-  '@typescript-eslint/no-explicit-any': 'off',
-  '@typescript-eslint/strict-boolean-expressions': 'off',
-  '@typescript-eslint/space-before-function-paren': [
-    'error',
-    {
-      anonymous: 'always',
-      named: 'never',
-      asyncArrow: 'always'
-    }
-  ],
-  '@typescript-eslint/no-use-before-define': [
-    'error',
-    {
-      functions: false,
-      classes: false,
-      variables: true,
-      enums: false,
-      typedefs: false
-    }
-  ],
-  '@typescript-eslint/member-delimiter-style': [
-    'error',
-    {
-      multiline: {
-        delimiter: 'comma',
-        requireLast: false
+        'vue/eqeqeq': 'error',
+        'vue/object-curly-spacing': ['error', 'always'],
+        'vue/require-direct-export': 'error',
+        'vue/no-parsing-error': [
+          'error',
+          {
+            'x-invalid-end-tag': false
+          }
+        ],
+        'vue/max-attributes-per-line': [
+          'warn',
+          {
+            singleline: 3,
+            multiline: 1
+          }
+        ],
+        'vue/match-component-file-name': [
+          'error',
+          {
+            extensions: ['vue'],
+            shouldMatchCase: false
+          }
+        ],
+        'vue/space-infix-ops': [
+          'error',
+          {
+            int32Hint: false
+          }
+        ],
+        'vue/html-self-closing': [
+          'error',
+          {
+            html: {
+              void: 'always',
+              normal: 'never',
+              component: 'never'
+            },
+            svg: 'always',
+            math: 'always'
+          }
+        ],
+        'vue/no-reserved-component-names': 'off',
+        'vue/comment-directive': 'off',
+        'vue/multi-word-component-names': 'off',
+        'vue/no-setup-props-destructure': 'off',
+        'vue/require-default-prop': 'off',
+        'vue/padding-line-between-blocks': ['error', 'always']
       },
-      singleline: {
-        delimiter: 'comma',
-        requireLast: false
-      }
-    }
-  ],
-  '@typescript-eslint/no-inferrable-types': 'error',
-  '@typescript-eslint/no-this-alias': [
-    'error',
-    {
-      allowDestructuring: true
-    }
-  ],
-  '@typescript-eslint/no-unnecessary-condition': 'off',
-  '@typescript-eslint/explicit-module-boundary-types': 'off',
-  '@typescript-eslint/explicit-function-return-type': 'off',
-  '@typescript-eslint/no-non-null-assertion': 'off',
-  '@typescript-eslint/consistent-type-assertions': 'off',
-  '@typescript-eslint/consistent-type-imports': [
-    'error',
-    {
-      prefer: 'type-imports',
-      disallowTypeAnnotations: false
-    }
-  ],
-  '@typescript-eslint/ban-ts-comment': 'off',
-  '@typescript-eslint/array-type': 'off',
-  '@typescript-eslint/no-unused-vars': [
-    'warn',
-    {
-      args: 'after-used',
-      argsIgnorePattern: '^_',
-      caughtErrors: 'none',
-      ignoreRestSiblings: true
-    }
-  ]
-} as Partial<Rules>
-
-export default defineConfig({
-  extends: [
-    'standard-jsx',
-    'plugin:jsonc/recommended-with-jsonc',
-    'plugin:yml/standard',
-    'plugin:markdown/recommended',
-    'plugin:vue/vue3-recommended',
-    '@vue/eslint-config-typescript/recommended'
-  ],
-  env: {
-    es6: true,
-    browser: true,
-    node: true
-  },
-  parser: 'vue-eslint-parser',
-  parserOptions: {
-    ecmaVersion: 'latest'
-  },
-  plugins: ['import', 'n', 'promise', 'react'],
-  reportUnusedDisableDirectives: true,
-  settings: {
-    'import/resolver': {
-      node: {
-        extensions: ['.mts', '.ts', '.tsx', '.mjs', '.js', '.jsx', '.json', '.node']
-      }
-    }
-  },
-  rules: {
-    ...typeScriptRules,
-
-    'vue/eqeqeq': 'error',
-    'vue/object-curly-spacing': ['error', 'always'],
-    'vue/require-direct-export': 'error',
-    'vue/no-parsing-error': [
-      'error',
-      {
-        'x-invalid-end-tag': false
-      }
-    ],
-    'vue/max-attributes-per-line': [
-      'warn',
-      {
-        singleline: 3,
-        multiline: 1
-      }
-    ],
-    'vue/match-component-file-name': [
-      'error',
-      {
-        extensions: ['vue'],
-        shouldMatchCase: false
-      }
-    ],
-    'vue/space-infix-ops': [
-      'error',
-      {
-        int32Hint: false
-      }
-    ],
-    'vue/html-self-closing': [
-      'error',
-      {
-        html: {
-          void: 'always',
-          normal: 'never',
-          component: 'never'
-        },
-        svg: 'always',
-        math: 'always'
-      }
-    ],
-    'vue/no-reserved-component-names': 'off',
-    'vue/comment-directive': 'off',
-    'vue/multi-word-component-names': 'off',
-    'vue/no-setup-props-destructure': 'off',
-    'vue/require-default-prop': 'off',
-    'vue/padding-line-between-blocks': ['error', 'always']
-  },
-  overrides: [
-    {
-      files: ['*.vue'],
-      rules: {
-        // Need override for vue files, otherwise typescript rules will not effective
-        ...typeScriptRules,
-        'no-unused-vars': 'off',
-        'no-undef': 'off',
-        '@typescript-eslint/no-unused-vars': 'off',
-        '@typescript-eslint/consistent-type-imports': 'off'
-      }
     },
     {
-      files: ['*.jsx', '*.tsx', '*.vue'],
+      files: ['**/*.{jsx,tsx}'],
+      plugins: {
+        react: reactPlugin,
+      },
+      languageOptions: {
+        parserOptions: {
+          ecmaFeatures: {
+            jsx: true,
+          },
+        },
+        globals: {
+          ...globals.browser,
+        },
+      },
       rules: {
-        'no-sequences': 'off',
         'react/self-closing-comp': 'off',
         'react/jsx-key': 'off',
         'react/jsx-curly-brace-presence': [
@@ -323,19 +337,11 @@ export default defineConfig({
         ],
         'react/jsx-closing-tag-location': 'off',
         'react/no-children-prop': 'off'
-      }
+      },
     },
+    ...jsoncPlugin.configs['flat/recommended-with-jsonc'],
     {
-      files: ['*.d.ts'],
-      rules: {
-        '@typescript-eslint/no-empty-interface': 'off',
-        '@typescript-eslint/consistent-type-imports': 'off',
-        '@typescript-eslint/no-unused-vars': 'off'
-      }
-    },
-    {
-      files: ['*.json', '*.json5'],
-      parser: 'jsonc-eslint-parser',
+      files: ['**/*.{json,jsonc}'],
       rules: {
         'jsonc/array-bracket-spacing': ['error', 'never'],
         'jsonc/comma-dangle': ['error', 'never'],
@@ -348,22 +354,24 @@ export default defineConfig({
         'jsonc/object-property-newline': ['error', { allowMultiplePropertiesPerLine: true }]
       }
     },
+    ...ymlPlugin.configs['flat/recommended'],
     {
-      files: ['*.yaml', '*.yml'],
-      parser: 'yaml-eslint-parser',
+      files: ['**/*.{yaml,yml}'],
       rules: {
         'spaced-comment': 'off'
       }
     },
+    markdownPlugin.configs.recommended,
     {
       // Code blocks in markdown file
-      files: ['**/*.md/*.*'],
+      files: ['**/*.md/**/*.{js,jsx,mjs,cjs,ts,tsx,vue}'],
       rules: {
         '@typescript-eslint/no-redeclare': 'off',
         '@typescript-eslint/no-unused-vars': 'off',
         '@typescript-eslint/no-use-before-define': 'off',
         '@typescript-eslint/no-var-requires': 'off',
         '@typescript-eslint/comma-dangle': 'off',
+        '@typescript-eslint/no-require-imports': 'off',
         'import/no-unresolved': 'off',
         'no-alert': 'off',
         'no-console': 'off',
@@ -373,27 +381,7 @@ export default defineConfig({
         'no-unused-vars': 'off'
       }
     }
-  ],
-  ignorePatterns: [
-    '*.min.*',
-    '*.log',
-    '*.svg',
-    '.env.*',
-    'CHANGELOG.md',
-    'dist',
-    'LICENSE*',
-    'output',
-    'coverage',
-    'public',
-    'temp',
-    'node_modules',
-    'package-lock.json',
-    'pnpm-lock.yaml',
-    'yarn.lock',
-    '__snapshots__',
-    '.husky',
-    '!.github',
-    '!.vitepress',
-    '!.vscode'
-  ]
-})
+  ) as Linter.Config[]
+}
+
+export default factory

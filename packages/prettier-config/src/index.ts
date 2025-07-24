@@ -1,5 +1,6 @@
-import type { Config } from 'prettier'
 import * as packagejson from 'prettier-plugin-packagejson'
+
+import type { Config } from 'prettier'
 
 export default {
   plugins: [packagejson],
