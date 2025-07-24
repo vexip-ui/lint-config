@@ -8,14 +8,27 @@
 
 ## Usage
 
+### Eslint
+
+```sh
+pnpm add -D eslint @eslint/js @vexip-ui/eslint-config
+```
+
+In your `eslint.config.js`:
+
+```js
+import factory from '@vexip-ui/eslint-config'
+
+export default factory()
+```
+
+### Others
+
 Install:
 
 ```sh
 # commitlint
 pnpm add -D @commitlint/cli @vexip-ui/commitlint-config
-
-# eslint
-pnpm add -D eslint @vexip-ui/eslint-config
 
 # prettier
 pnpm add -D prettier @vexip-ui/prettier-config
@@ -40,7 +53,7 @@ export default {
 }
 ```
 
-For `prettierrc.cjs` just a little defferent:
+For `prettierrc.cjs` just a little different:
 
 ```js
 module.exports = require('@vexip-ui/prettier-config')
