@@ -1,11 +1,15 @@
 import { resolve } from 'node:path'
-import { existsSync, readFileSync, readdirSync } from 'node:fs'
+import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 
 import prompts from 'prompts'
 
 export const rootDir = resolve(fileURLToPath(import.meta.url), '../..')
-export const pkgNames = readdirSync(resolve(rootDir, 'packages'))
+export const pkgNames = readdirSync(resolve(rootDir, 'packages')).filter(f => {
+  const path = resolve(rootDir, 'packages', f)
+
+  return statSync(path).isDirectory() && existsSync(`${path}/package.json`)
+})
 
 export async function getPackageInfo(inputPkg: string) {
   let pkgName: string | null = null
