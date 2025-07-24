@@ -1,3 +1,12 @@
+## [1.0.3](https://github.com/vexip-ui/lint-config/compare/eslint-config@1.0.2...eslint-config@1.0.3) (2025-07-24)
+
+
+### Bug Fixes
+
+* **eslint-config:** adjust @typescript-eslint/no-unused-expressions ([3c76ae2](https://github.com/vexip-ui/lint-config/commit/3c76ae22ec8194a6f6479b37d76fde06e373cb99))
+
+
+
 ## [1.0.2](https://github.com/vexip-ui/lint-config/compare/eslint-config@1.0.1...eslint-config@1.0.2) (2025-07-24)
 
 
