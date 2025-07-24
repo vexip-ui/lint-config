@@ -1,3 +1,7 @@
+## [1.0.2](https://github.com/vexip-ui/lint-config/compare/eslint-config@1.0.1...eslint-config@1.0.2) (2025-07-24)
+
+
+
 ## [1.0.1](https://github.com/vexip-ui/lint-config/compare/eslint-config@1.0.0...eslint-config@1.0.1) (2025-07-24)
 
 
