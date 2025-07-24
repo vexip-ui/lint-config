@@ -95,11 +95,11 @@ function factory({ ignores = [] }: FactoryOptions = {}) {
         'no-console':
       process.env.NODE_ENV === 'production'
         ? [
-            'error',
-            {
-              allow: ['warn', 'error']
-            }
-          ]
+          'error',
+          {
+            allow: ['warn', 'error']
+          }
+        ]
         : 'off',
         'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
         'no-return-assign': 'off',
