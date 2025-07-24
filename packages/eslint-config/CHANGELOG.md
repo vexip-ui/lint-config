@@ -1,3 +1,12 @@
+# [1.2.0](https://github.com/vexip-ui/lint-config/compare/eslint-config@1.1.0...eslint-config@1.2.0) (2025-07-24)
+
+
+### Features
+
+* **eslint-config:** @stylistic/comma-dangle always multiline ([0fd9766](https://github.com/vexip-ui/lint-config/commit/0fd9766609d2f0f5091442897e9056f15bb80377))
+
+
+
 # [1.1.0](https://github.com/vexip-ui/lint-config/compare/eslint-config@1.0.3...eslint-config@1.1.0) (2025-07-24)
 
 
