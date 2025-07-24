@@ -315,6 +315,12 @@ function factory({ ignores = [] }: FactoryOptions = {}) {
         '@typescript-eslint/consistent-type-imports': 'off',
       },
     },
+    {
+      files: ['**/*.{cjs,cts}'],
+      rules: {
+        '@typescript-eslint/no-require-imports': 'off',
+      },
+    },
     ...jsoncPlugin.configs['flat/recommended-with-jsonc'],
     {
       files: ['**/*.{json,jsonc}'],
