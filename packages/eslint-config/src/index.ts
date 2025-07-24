@@ -70,7 +70,6 @@ function factory({ ignores = [] }: FactoryOptions = {}) {
         ecmaVersion: 'latest',
         sourceType: 'module',
         globals: globals.browser,
-        // parser: vueParser,
         parserOptions: {
           parser: tseslint.parser,
           ecmaVersion: 'latest',
@@ -92,17 +91,16 @@ function factory({ ignores = [] }: FactoryOptions = {}) {
         }
       },
       rules: {
-        'no-console':
-      process.env.NODE_ENV === 'production'
-        ? [
-          'error',
+        'no-console': [
+          process.env.NODE_ENV === 'production' ? 'error' : 'warn',
           {
-            allow: ['warn', 'error']
+            allow: ['info', 'warn', 'error']
           }
-        ]
-        : 'off',
-        'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+        ],
+        'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
         'no-return-assign': 'off',
+        'no-sparse-arrays': 'off',
+        'no-empty': ['error', { allowEmptyCatch: true }],
 
         'import/no-mutable-exports': 'error',
         'import/order': [
@@ -220,6 +218,7 @@ function factory({ ignores = [] }: FactoryOptions = {}) {
             allowTaggedTemplates: true,
           }
         ],
+        '@typescript-eslint/no-empty-object-type': 'off',
 
         'vue/eqeqeq': 'error',
         'vue/object-curly-spacing': ['error', 'always'],
@@ -271,7 +270,7 @@ function factory({ ignores = [] }: FactoryOptions = {}) {
       },
     },
     {
-      files: ['**/*.{jsx,tsx}'],
+      files: ['**/*.{jsx,tsx,vue}'],
       plugins: {
         react: reactPlugin,
       },
@@ -305,6 +304,15 @@ function factory({ ignores = [] }: FactoryOptions = {}) {
         'react/jsx-closing-tag-location': 'off',
         'react/no-children-prop': 'off'
       },
+    },
+    {
+      files: ['**/*.vue'],
+      rules: {
+        'no-unused-vars': 'off',
+        'no-undef': 'off',
+        '@typescript-eslint/no-unused-vars': 'off',
+        '@typescript-eslint/consistent-type-imports': 'off'
+      }
     },
     ...jsoncPlugin.configs['flat/recommended-with-jsonc'],
     {
