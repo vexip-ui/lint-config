@@ -1,3 +1,12 @@
+## [1.2.2](https://github.com/vexip-ui/lint-config/compare/eslint-config@1.2.1...eslint-config@1.2.2) (2025-07-24)
+
+
+### Bug Fixes
+
+* **eslint-config:** off no-require-imports for cjs ([6a669cc](https://github.com/vexip-ui/lint-config/commit/6a669cc9a3ff9a28475be96c7415c02a57cd2bd4))
+
+
+
 ## [1.2.1](https://github.com/vexip-ui/lint-config/compare/eslint-config@1.2.0...eslint-config@1.2.1) (2025-07-24)
 
 
