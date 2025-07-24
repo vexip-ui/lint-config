@@ -26,8 +26,8 @@ export default {
         'wip',
         'workflow',
         'types',
-        'release'
-      ]
-    ]
-  }
+        'release',
+      ],
+    ],
+  },
 } satisfies UserConfig

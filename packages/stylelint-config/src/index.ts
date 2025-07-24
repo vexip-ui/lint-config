@@ -7,7 +7,7 @@ export default {
     'stylelint-config-standard-scss',
     'stylelint-config-html',
     'stylelint-config-recommended-vue',
-    'stylelint-config-recess-order'
+    'stylelint-config-recess-order',
   ],
   plugins: ['stylelint-order'],
   rules: {
@@ -19,7 +19,7 @@ export default {
       '/^transition/': ['/all/'],
       '/^background/': ['http:', 'https:'],
       '/^border/': ['none'],
-      '/.+/': ['initial']
+      '/.+/': ['initial'],
     },
     'media-feature-name-no-vendor-prefix': true,
     'property-no-vendor-prefix': true,
@@ -32,24 +32,24 @@ export default {
         ignore: [
           'after-comment',
           'blockless-after-same-name-blockless',
-          'blockless-after-blockless'
+          'blockless-after-blockless',
         ],
-        ignoreAtRules: ['else']
-      }
+        ignoreAtRules: ['else'],
+      },
     ],
     'no-descending-specificity': null,
     'custom-property-empty-line-before': null,
     'selector-class-pattern': [
       '^([#a-z][$#{}a-z0-9]*)((-{1,2}|_{2})[$#{}a-z0-9]+)*$',
       {
-        message: 'Expected class selector to be kebab-case'
-      }
+        message: 'Expected class selector to be kebab-case',
+      },
     ],
     'keyframes-name-pattern': [
       '^([#a-z][$#{}a-z0-9]*)((-{1,2}|_{2})[$#{}a-z0-9]+)*$',
       {
-        message: 'Expected keyframe name to be kebab-case'
-      }
+        message: 'Expected keyframe name to be kebab-case',
+      },
     ],
     'color-function-notation': null,
     'function-no-unknown': null,
@@ -57,20 +57,20 @@ export default {
     'annotation-no-unknown': [
       true,
       {
-        ignoreAnnotations: ['default', 'global']
-      }
+        ignoreAnnotations: ['default', 'global'],
+      },
     ],
     'scss/at-import-partial-extension': 'always',
     'scss/dollar-variable-empty-line-before': null,
-    'scss/operator-no-newline-after': null
+    'scss/operator-no-newline-after': null,
   },
   overrides: [
     {
       files: ['*.scss', '*.vue'],
       rules: {
-        'media-query-no-invalid': null
-      }
-    }
+        'media-query-no-invalid': null,
+      },
+    },
   ],
   ignoreFiles: [
     'node_modules',
@@ -86,6 +86,6 @@ export default {
     '*.tsx',
     '*.svg',
     '*.gif',
-    '*.md'
-  ]
+    '*.md',
+  ],
 } satisfies Config

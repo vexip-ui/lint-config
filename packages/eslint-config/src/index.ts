@@ -56,8 +56,8 @@ function factory({ ignores = [] }: FactoryOptions = {}) {
 
         '**/*.md/*.md',
 
-        ...ignores
-      ]
+        ...ignores,
+      ],
     },
     {
       extends: [
@@ -74,8 +74,8 @@ function factory({ ignores = [] }: FactoryOptions = {}) {
           parser: tseslint.parser,
           ecmaVersion: 'latest',
           ecmaFeatures: {
-            jsx: true
-          }
+            jsx: true,
+          },
         },
       },
       plugins: {
@@ -86,16 +86,16 @@ function factory({ ignores = [] }: FactoryOptions = {}) {
       settings: {
         'import/resolver': {
           node: {
-            extensions: ['.mts', '.ts', '.tsx', '.mjs', '.js', '.jsx', '.json', '.node']
-          }
-        }
+            extensions: ['.mts', '.ts', '.tsx', '.mjs', '.js', '.jsx', '.json', '.node'],
+          },
+        },
       },
       rules: {
         'no-console': [
           process.env.NODE_ENV === 'production' ? 'error' : 'warn',
           {
-            allow: ['info', 'warn', 'error']
-          }
+            allow: ['info', 'warn', 'error'],
+          },
         ],
         'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
         'no-return-assign': 'off',
@@ -109,29 +109,29 @@ function factory({ ignores = [] }: FactoryOptions = {}) {
             groups: [
               'unknown',
               ['builtin', 'external', 'internal', 'parent', 'index', 'sibling', 'object'],
-              'type'
+              'type',
             ],
             pathGroups: [
               {
                 pattern: '**/*.{css,scss,sass,less,styl,stylus,json,xml}',
                 group: 'unknown',
-                position: 'before'
+                position: 'before',
               },
               {
                 pattern: '{node:*,node:**/*}',
                 group: 'builtin',
-                position: 'before'
+                position: 'before',
               },
               {
                 pattern: '{vitest,vue,vue-router,pinia,vuex,vue-i18n,axios,@vue/*}',
                 group: 'external',
-                position: 'before'
-              }
+                position: 'before',
+              },
             ],
             pathGroupsExcludedImportTypes: ['unknown', 'type'],
             'newlines-between': 'always-and-inside-groups',
-            warnOnUnassignedImports: false
-          }
+            warnOnUnassignedImports: false,
+          },
         ],
         'sort-imports': [
           'error',
@@ -140,8 +140,8 @@ function factory({ ignores = [] }: FactoryOptions = {}) {
             ignoreDeclarationSort: true,
             ignoreMemberSort: false,
             memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
-            allowSeparatedGroups: false
-          }
+            allowSeparatedGroups: false,
+          },
         ],
 
         '@stylistic/indent': ['error', 2],
@@ -150,22 +150,23 @@ function factory({ ignores = [] }: FactoryOptions = {}) {
           {
             anonymous: 'always',
             named: 'never',
-            asyncArrow: 'always'
-          }
+            asyncArrow: 'always',
+          },
         ],
         '@stylistic/member-delimiter-style': [
           'error',
           {
             multiline: {
               delimiter: 'comma',
-              requireLast: false
+              requireLast: false,
             },
             singleline: {
               delimiter: 'comma',
-              requireLast: false
-            }
-          }
+              requireLast: false,
+            },
+          },
         ],
+        '@stylistic/comma-dangle': ['error', 'always-multiline'],
 
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/strict-boolean-expressions': 'off',
@@ -176,16 +177,16 @@ function factory({ ignores = [] }: FactoryOptions = {}) {
             classes: false,
             variables: true,
             enums: false,
-            typedefs: false
-          }
+            typedefs: false,
+          },
         ],
         
         '@typescript-eslint/no-inferrable-types': 'error',
         '@typescript-eslint/no-this-alias': [
           'error',
           {
-            allowDestructuring: true
-          }
+            allowDestructuring: true,
+          },
         ],
         '@typescript-eslint/no-unnecessary-condition': 'off',
         '@typescript-eslint/explicit-module-boundary-types': 'off',
@@ -196,8 +197,8 @@ function factory({ ignores = [] }: FactoryOptions = {}) {
           'error',
           {
             prefer: 'type-imports',
-            disallowTypeAnnotations: false
-          }
+            disallowTypeAnnotations: false,
+          },
         ],
         '@typescript-eslint/ban-ts-comment': 'off',
         '@typescript-eslint/array-type': 'off',
@@ -207,8 +208,8 @@ function factory({ ignores = [] }: FactoryOptions = {}) {
             args: 'after-used',
             argsIgnorePattern: '^_',
             caughtErrors: 'none',
-            ignoreRestSiblings: true
-          }
+            ignoreRestSiblings: true,
+          },
         ],
         '@typescript-eslint/no-unused-expressions': [
           'error',
@@ -216,7 +217,7 @@ function factory({ ignores = [] }: FactoryOptions = {}) {
             allowShortCircuit: true,
             allowTernary: true,
             allowTaggedTemplates: true,
-          }
+          },
         ],
         '@typescript-eslint/no-empty-object-type': 'off',
 
@@ -226,28 +227,28 @@ function factory({ ignores = [] }: FactoryOptions = {}) {
         'vue/no-parsing-error': [
           'error',
           {
-            'x-invalid-end-tag': false
-          }
+            'x-invalid-end-tag': false,
+          },
         ],
         'vue/max-attributes-per-line': [
           'warn',
           {
             singleline: 3,
-            multiline: 1
-          }
+            multiline: 1,
+          },
         ],
         'vue/match-component-file-name': [
           'error',
           {
             extensions: ['vue'],
-            shouldMatchCase: false
-          }
+            shouldMatchCase: false,
+          },
         ],
         'vue/space-infix-ops': [
           'error',
           {
-            int32Hint: false
-          }
+            int32Hint: false,
+          },
         ],
         'vue/html-self-closing': [
           'error',
@@ -255,18 +256,18 @@ function factory({ ignores = [] }: FactoryOptions = {}) {
             html: {
               void: 'always',
               normal: 'never',
-              component: 'never'
+              component: 'never',
             },
             svg: 'always',
-            math: 'always'
-          }
+            math: 'always',
+          },
         ],
         'vue/no-reserved-component-names': 'off',
         'vue/comment-directive': 'off',
         'vue/multi-word-component-names': 'off',
         'vue/no-setup-props-destructure': 'off',
         'vue/require-default-prop': 'off',
-        'vue/padding-line-between-blocks': ['error', 'always']
+        'vue/padding-line-between-blocks': ['error', 'always'],
       },
     },
     {
@@ -292,17 +293,17 @@ function factory({ ignores = [] }: FactoryOptions = {}) {
           {
             props: 'always',
             children: 'always',
-            propElementValues: 'always'
-          }
+            propElementValues: 'always',
+          },
         ],
         'react/jsx-pascal-case': [
           'error',
           {
-            allowAllCaps: true
-          }
+            allowAllCaps: true,
+          },
         ],
         'react/jsx-closing-tag-location': 'off',
-        'react/no-children-prop': 'off'
+        'react/no-children-prop': 'off',
       },
     },
     {
@@ -311,8 +312,8 @@ function factory({ ignores = [] }: FactoryOptions = {}) {
         'no-unused-vars': 'off',
         'no-undef': 'off',
         '@typescript-eslint/no-unused-vars': 'off',
-        '@typescript-eslint/consistent-type-imports': 'off'
-      }
+        '@typescript-eslint/consistent-type-imports': 'off',
+      },
     },
     ...jsoncPlugin.configs['flat/recommended-with-jsonc'],
     {
@@ -326,15 +327,15 @@ function factory({ ignores = [] }: FactoryOptions = {}) {
         'jsonc/no-octal-escape': 'error',
         'jsonc/object-curly-newline': ['error', { multiline: true, consistent: true }],
         'jsonc/object-curly-spacing': ['error', 'always'],
-        'jsonc/object-property-newline': ['error', { allowMultiplePropertiesPerLine: true }]
-      }
+        'jsonc/object-property-newline': ['error', { allowMultiplePropertiesPerLine: true }],
+      },
     },
     ...ymlPlugin.configs['flat/recommended'],
     {
       files: ['**/*.{yaml,yml}'],
       rules: {
-        'spaced-comment': 'off'
-      }
+        'spaced-comment': 'off',
+      },
     },
     markdownPlugin.configs.recommended,
     {
@@ -353,9 +354,9 @@ function factory({ ignores = [] }: FactoryOptions = {}) {
         'no-restricted-imports': 'off',
         'no-undef': 'off',
         'no-unused-expressions': 'off',
-        'no-unused-vars': 'off'
-      }
-    }
+        'no-unused-vars': 'off',
+      },
+    },
   ) as Linter.Config[]
 }
 

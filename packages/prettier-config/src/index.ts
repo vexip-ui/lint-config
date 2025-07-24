@@ -51,14 +51,14 @@ export default {
     'gitHooks',
     'lint-staged',
     'prettier',
-    'eslintConfig'
+    'eslintConfig',
   ],
   overrides: [
     {
       files: '*.md',
       options: {
-        embeddedLanguageFormatting: 'off'
-      }
-    }
-  ]
+        embeddedLanguageFormatting: 'off',
+      },
+    },
+  ],
 } satisfies Config

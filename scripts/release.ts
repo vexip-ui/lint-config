@@ -39,11 +39,11 @@ async function main() {
         '--commit-path',
         '.',
         '--lerna-package',
-        pkgName
+        pkgName,
       ]
 
       await run('npx', changelogArgs, { cwd: pkgDir })
-    }
+    },
   })
 }
 

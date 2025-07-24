@@ -41,7 +41,7 @@ Then in your `xxxlintrc.cjs`:
 
 ```js
 module.exports = {
-  extends: ['@vexip-ui/xxxlint-config']
+  extends: ['@vexip-ui/xxxlint-config'],
 }
 ```
 
@@ -49,7 +49,7 @@ Or in your `xxxlintrc.mjs`:
 
 ```js
 export default {
-  extends: ['@vexip-ui/xxxlint-config']
+  extends: ['@vexip-ui/xxxlint-config'],
 }
 ```
 

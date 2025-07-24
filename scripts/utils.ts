@@ -29,7 +29,7 @@ export async function getPackageInfo(inputPkg: string) {
           type: 'select',
           name: 'pkgName',
           message: 'Select release package:',
-          choices: options.map(n => ({ title: n, value: n }))
+          choices: options.map(n => ({ title: n, value: n })),
         })
       ).pkgName
     }
@@ -58,6 +58,6 @@ export async function getPackageInfo(inputPkg: string) {
     pkgDir,
     pkgPath,
     pkg,
-    currentVersion: pkg.version
+    currentVersion: pkg.version,
   }
 }
