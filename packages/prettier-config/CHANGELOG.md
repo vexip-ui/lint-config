@@ -1,3 +1,13 @@
+# [1.1.0](https://github.com/vexip-ui/lint-config/compare/prettier-config@1.0.3...prettier-config@1.1.0) (2025-07-29)
+
+
+### Features
+
+* **eslint-config:** @stylistic/comma-dangle always multiline ([0fd9766](https://github.com/vexip-ui/lint-config/commit/0fd9766609d2f0f5091442897e9056f15bb80377))
+* **prettier-config:** adjust trailingComma to all ([2a1c8f2](https://github.com/vexip-ui/lint-config/commit/2a1c8f233e6abd891013a6d1300b6071fbc3ee6b))
+
+
+
 ## [1.0.3](https://github.com/vexip-ui/lint-config/compare/prettier-config@1.0.2...prettier-config@1.0.3) (2025-05-27)
 
 
