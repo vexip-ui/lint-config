@@ -1,3 +1,12 @@
+# [1.3.0](https://github.com/vexip-ui/lint-config/compare/eslint-config@1.2.2...eslint-config@1.3.0) (2025-08-06)
+
+
+### Features
+
+* **eslint-config:** @stylistic/member-delimiter-style multiline require last ([125bb66](https://github.com/vexip-ui/lint-config/commit/125bb6691e0213ad54625a347159b7eff628b04d))
+
+
+
 ## [1.2.2](https://github.com/vexip-ui/lint-config/compare/eslint-config@1.2.1...eslint-config@1.2.2) (2025-07-24)
 
 
