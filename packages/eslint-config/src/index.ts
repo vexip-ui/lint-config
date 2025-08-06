@@ -12,7 +12,7 @@ import stylistic from '@stylistic/eslint-plugin'
 import type { Linter } from 'eslint'
 
 export interface FactoryOptions {
-  ignores?: string[]
+  ignores?: string[],
 }
 
 function factory({ ignores = [] }: FactoryOptions = {}) {
