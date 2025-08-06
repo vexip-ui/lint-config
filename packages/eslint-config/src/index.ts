@@ -158,7 +158,7 @@ function factory({ ignores = [] }: FactoryOptions = {}) {
           {
             multiline: {
               delimiter: 'comma',
-              requireLast: false,
+              requireLast: true,
             },
             singleline: {
               delimiter: 'comma',
